@@ -75,6 +75,18 @@ time python3 generate.py \
 
 ## 擷圖
 !["訓練過程中，每個 step 輸出 log 的畫面"](https://i.imgur.com/nIh2b7b.png "訓練過程中，每個 step 輸出 log 的畫面")
-
 圖 1 訓練過程中，每個 step 輸出 log 的畫面
 
+![每一回合訓練的 model，會各別輸出儲存](https://i.imgur.com/dUOe9ZI.png "每一回合訓練的 model，會各別輸出儲存")
+圖 2 每一回合訓練的 model，會各別輸出儲存
+
+![每訓練完 1 個 epoch，會計算與顯示當前回合的訓練時間長](https://i.imgur.com/apTVmn6.png "每訓練完 1 個 epoch，會計算與顯示當前回合的訓練時間長")
+圖 3 每訓練完 1 個 epoch，會計算與顯示當前回合的訓練時間長(圖片以 epoch 1 為例)
+
+![以訓練第 82 回合的 model 來進行生成測試](https://i.imgur.com/zugOWtj.png "以訓練第 82 回合的 model 來進行生成測試")
+圖 4 以訓練第 82 回合的 model 來進行生成測試
+
+註: 圖 4 的生成指令
+```
+python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=model/model_epoch82/
+```
