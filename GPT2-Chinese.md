@@ -96,4 +96,4 @@ python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三�
 ```
 
 ## 下載檔案
-(Google 雲端硬碟)[https://drive.google.com/drive/folders/1EmqZsb3Lp_M7ftSiKVgHC6xIiWQVmDBe?usp=sharing "Google 雲端硬碟"]
+[Google 雲端硬碟](https://drive.google.com/drive/folders/1EmqZsb3Lp_M7ftSiKVgHC6xIiWQVmDBe?usp=sharing "Google 雲端硬碟")
