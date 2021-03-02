@@ -75,5 +75,6 @@ time python3 generate.py \
 
 ## 擷圖
 !["訓練過程中，每個 step 輸出 log 的畫面"](https://i.imgur.com/nIh2b7b.png "訓練過程中，每個 step 輸出 log 的畫面")
+
 圖 1 訓練過程中，每個 step 輸出 log 的畫面
 
