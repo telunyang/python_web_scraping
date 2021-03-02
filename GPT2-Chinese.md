@@ -64,9 +64,9 @@ time python3.7 train.py \
 ### （二）生成文章的指令
 ```
 time python3 generate.py \
---length=300 \
+--length=250 \
 --nsamples=3 \
---prefix=張無忌見三名老僧在片刻間連斃崑崙派四位高手， \
+--prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" \
 --temperature=0.7 \
 --model_path=model/final_model/ \
 --save_samples \
