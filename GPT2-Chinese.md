@@ -1,4 +1,5 @@
 # GPT2-Chinese
+
 ## 一、說明
 - 作業環境:
   - Windows 10 or Linux Ubuntu 18.04+
@@ -31,10 +32,7 @@
 ### （二）[WinError 126] VC-redist 安裝檔
 [WinError 126 VC-redist 安裝檔](https://download.visualstudio.microsoft.com/download/pr/89a3b9df-4a09-492e-8474-8f92c115c51d/B1A32C71A6B7D5978904FB223763263EA5A7EB23B2C44A0D60E90D234AD99178/VC_redist.x64.exe "WinError 126 VC-redist 安裝檔")
 
-### （三）語言模型評價指標Perplexity
-[語言模型評價指標Perplexity](https://blog.csdn.net/index20001/article/details/78884646 "語言模型評價指標Perplexity")
-
-### （四）訓練文章的指令
+### （三）訓練文章的指令
 ```
 python train.py --device=0 --epochs=1 --num_pieces=100 --batch_size=1 --min_length=10 --raw_data_path=data/jinyong.json --output_dir=model/ --raw 
 ```
@@ -50,7 +48,7 @@ python train.py --device=0 --epochs=1 --num_pieces=100 --batch_size=1 --min_leng
 | output_dir | 訓練完的語言模型存放資料夾 |
 | raw | 設定此參數，會將樣本進行 tokenize |
 
-### （五）生成文章的指令
+### （四）生成文章的指令
 ```
 python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=model/model_epoch100_jinyong/ --save_samples --save_samples_path=output/
 ```
