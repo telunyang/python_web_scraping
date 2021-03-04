@@ -36,7 +36,7 @@ python train.py --device=0 --epochs=1 --num_pieces=100 --batch_size=1 --min_leng
 
 ### （五）生成文章的指令
 ```
-python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=outputs/model_epoch100_jinyong/ --save_samples --save_samples_path=output/
+python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=model/model_epoch100_jinyong/ --save_samples --save_samples_path=output/
 ```
 | 參數 | 說明 |
 | ------ | ------ |
@@ -90,9 +90,9 @@ time python3 generate.py \
 
 圖 3 每訓練完 1 個 epoch，會計算與顯示當前回合的訓練時間長(圖片以 epoch 1 為例)
 
-![以訓練第 82 回合的 model 來進行生成測試](https://i.imgur.com/zugOWtj.png "以訓練第 82 回合的 model 來進行生成測試")
+![以訓練第 100 回合的 model 來進行生成測試](https://i.imgur.com/0Rq0oK5.png "以訓練第 100 回合的 model 來進行生成測試")
 
-圖 4 以訓練第 82 回合的 model 來進行生成測試
+圖 4 以訓練第 100 回合的 model 來進行生成測試
 
 ![訓練 100 epochs 後的畫面，訓練程式結束的畫面](https://i.imgur.com/NEx0J0H.png "訓練 100 epochs 後的畫面，訓練程式結束的畫面")
 
