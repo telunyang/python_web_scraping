@@ -1,7 +1,11 @@
 # GPT2-Chinese
-- [GPT2-Chinese 專案連結](https://github.com/Morizeyao/GPT2-Chinese "GPT2-Chinese 專案連結")
-- Git 下載指令：```git clone https://github.com/Morizeyao/GPT2-Chinese.git```
-- 手動下載：Code -> Download ZIP
+- 專案連結
+  - [GPT2-Chinese 專案連結](https://github.com/Morizeyao/GPT2-Chinese "GPT2-Chinese 專案連結")
+- 下載方式
+  - Git 下載指令：```git clone https://github.com/Morizeyao/GPT2-Chinese.git```
+  - 手動下載：Code -> Download ZIP
+- 參考網頁
+  - [直觀理解 GPT-2 語言模型並生成金庸武俠小說](https://leemeng.tw/gpt2-language-model-generate-chinese-jing-yong-novels.html "直觀理解 GPT-2 語言模型並生成金庸武俠小說")
 
 ## 一、在 Windows 的基本使用方式
 
@@ -32,7 +36,7 @@ python train.py --device=0 --epochs=1 --num_pieces=100 --batch_size=1 --min_leng
 
 ### （五）生成文章的指令
 ```
-python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=outputs/final_model/ --save_samples --save_samples_path=output/
+python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=outputs/model_epoch100_jinyong/ --save_samples --save_samples_path=output/
 ```
 | 參數 | 說明 |
 | ------ | ------ |
@@ -41,7 +45,7 @@ python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三�
 | length | 生成文字的長度 |
 | nsamples | 生成幾個文章範本 |
 | prefix | 生成文章的前導文字，會影響生成的發展 |
-| temperature | 生成溫度是一個實數值，而當溫度越高，模型產生出來的結果越隨機、越不可預測；簡單來說，使得原先容易被選到的字，抽出的機會變小，平常較少出現的字，被選到的機會稍微增加 |
+| temperature | 生成溫度溫度越高，模型產生出來的結果越隨機、越不可預測；換言之，使得原先容易被選到的字，抽出的機會變小，平常較少出現的字，被選到的機會稍微增加 |
 | model_path | 生成文字所使用的語言模型資料夾路徑 |
 | save_samples | 有設定的話，會儲存生成文章的範本 |
 | save_samples_path | 生成文章範本的儲存路徑 |
@@ -68,7 +72,7 @@ time python3 generate.py \
 --nsamples=3 \
 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" \
 --temperature=0.7 \
---model_path=model/final_model/ \
+--model_path=model/model_epoch100_jinyong/ \
 --save_samples \
 --save_samples_path=output/
 ```
@@ -90,10 +94,9 @@ time python3 generate.py \
 
 圖 4 以訓練第 82 回合的 model 來進行生成測試
 
-註: 圖 4 的生成指令
-```
-python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=model/model_epoch82/
-```
+![訓練 100 epochs 後的畫面，訓練程式結束的畫面](https://i.imgur.com/NEx0J0H.png "訓練 100 epochs 後的畫面，訓練程式結束的畫面")
+
+圖 5 訓練 100 epochs 後，訓練程式結束的畫面
 
 ## 下載檔案
 [Google 雲端硬碟](https://drive.google.com/drive/folders/1EmqZsb3Lp_M7ftSiKVgHC6xIiWQVmDBe?usp=sharing "Google 雲端硬碟")
