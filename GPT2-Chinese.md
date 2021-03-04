@@ -1,13 +1,23 @@
 # GPT2-Chinese
+## 一、說明
+- 作業環境
+  - Anaconda (Python 3.7+)
 - 專案連結
   - [GPT2-Chinese 專案連結](https://github.com/Morizeyao/GPT2-Chinese "GPT2-Chinese 專案連結")
 - 下載方式
   - Git 下載指令：```git clone https://github.com/Morizeyao/GPT2-Chinese.git```
-  - 手動下載：Code -> Download ZIP
+  - 手動下載：專案連結頁面 -> Code -> Download ZIP
+- 安裝套件
+  - 進入專案資料夾後輸入 ```pip install -r requirements.txt```
+- CUDA 下載與參考連結（以 Windows 環境為例）
+  - 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive") 
+  - 參考連結: 
+    - [CUDA 與 CuDNN 安裝及環境變數設定](https://qqmanlin.medium.com/cuda-%E8%88%87-cudnn-%E5%AE%89%E8%A3%9D-e982d92162af "CUDA 與 CuDNN 安裝及環境變數設定")
+    - [Win10環境下配置CUDA與cuDNN](https://dotblogs.com.tw/CYLcode/2018/09/20/163005 "Win10環境下配置CUDA與cuDNN")
 - 參考網頁
   - [直觀理解 GPT-2 語言模型並生成金庸武俠小說](https://leemeng.tw/gpt2-language-model-generate-chinese-jing-yong-novels.html "直觀理解 GPT-2 語言模型並生成金庸武俠小說")
 
-## 一、在 Windows 的基本使用方式
+## 二、在 Windows 的基本使用方式
 
 ### （一）win10 安裝pytorch gpu 及 解決報錯“OSError: [WinError 126] 找不到指定的模組
 [WinError 126 找不到指定的模組](https://www.mdeditor.tw/pl/pndo/zh-tw "WinError 126 找不到指定的模組")
@@ -50,7 +60,7 @@ python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三�
 | save_samples | 有設定的話，會儲存生成文章的範本 |
 | save_samples_path | 生成文章範本的儲存路徑 |
 
-## 二、在 Linux、MacOS 的基本使用方式
+## 三、在 Linux、MacOS 的基本使用方式
 
 ### （一）訓練文章的指令
 ```
@@ -77,7 +87,7 @@ time python3 generate.py \
 --save_samples_path=output/
 ```
 
-## 擷圖
+## 四、擷圖
 !["訓練過程中，每個 step 輸出 log 的畫面"](https://i.imgur.com/nIh2b7b.png "訓練過程中，每個 step 輸出 log 的畫面")
 
 圖 1 訓練過程中，每個 step 輸出 log 的畫面
@@ -98,5 +108,5 @@ time python3 generate.py \
 
 圖 5 訓練 100 epochs 後，訓練程式結束的畫面
 
-## 下載檔案
+## 五、下載檔案
 [Google 雲端硬碟](https://drive.google.com/drive/folders/1EmqZsb3Lp_M7ftSiKVgHC6xIiWQVmDBe?usp=sharing "Google 雲端硬碟")
