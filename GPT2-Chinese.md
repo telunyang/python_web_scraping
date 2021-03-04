@@ -114,5 +114,5 @@ time python3 generate.py \
 
 圖 5 訓練 100 epochs 後，訓練程式結束的畫面
 
-## 五、下載檔案
+## 五、預訓練模型與相關檔案連結
 [Google 雲端硬碟](https://drive.google.com/drive/folders/1EmqZsb3Lp_M7ftSiKVgHC6xIiWQVmDBe?usp=sharing "Google 雲端硬碟")
