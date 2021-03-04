@@ -1,20 +1,24 @@
 # GPT2-Chinese
 ## 一、說明
-- 作業環境
+- 作業環境:
+  - Windows 10 or Linux Ubuntu 18.04+
   - Anaconda (Python 3.7+)
-- 專案連結
+- 專案連結:
   - [GPT2-Chinese 專案連結](https://github.com/Morizeyao/GPT2-Chinese "GPT2-Chinese 專案連結")
-- 下載方式
+- 下載方式:
   - Git 下載指令：```git clone https://github.com/Morizeyao/GPT2-Chinese.git```
   - 手動下載：專案連結頁面 -> Code -> Download ZIP
-- 安裝套件
+- 安裝套件:
   - 進入專案資料夾後輸入 ```pip install -r requirements.txt```
-- CUDA 下載與參考連結（以 Windows 環境為例）
+- CUDA 下載與參考連結
+  - 說明:
+    - 以電腦有 GPU 的 Windows 環境為例
+    - 請注意 nvidia driver 與 CUDA、CUDA 與 CuDNN 之間的相依問題
   - 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive") 
   - 參考連結: 
     - [CUDA 與 CuDNN 安裝及環境變數設定](https://qqmanlin.medium.com/cuda-%E8%88%87-cudnn-%E5%AE%89%E8%A3%9D-e982d92162af "CUDA 與 CuDNN 安裝及環境變數設定")
     - [Win10環境下配置CUDA與cuDNN](https://dotblogs.com.tw/CYLcode/2018/09/20/163005 "Win10環境下配置CUDA與cuDNN")
-- 參考網頁
+- 參考網頁:
   - [直觀理解 GPT-2 語言模型並生成金庸武俠小說](https://leemeng.tw/gpt2-language-model-generate-chinese-jing-yong-novels.html "直觀理解 GPT-2 語言模型並生成金庸武俠小說")
 
 ## 二、在 Windows 的基本使用方式
