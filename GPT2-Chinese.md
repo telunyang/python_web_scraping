@@ -30,6 +30,7 @@
     - 請注意 nvidia driver 與 CUDA、CUDA 與 CuDNN 之間的相依問題
   - 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive") 
   - 參考連結: 
+    - [CUDA 與 nvidia drver 相容表 (Table 2)](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html "CUDA 與 nvidia drver 相容表 (Table 2)")
     - [CUDA 與 CuDNN 安裝及環境變數設定](https://qqmanlin.medium.com/cuda-%E8%88%87-cudnn-%E5%AE%89%E8%A3%9D-e982d92162af "CUDA 與 CuDNN 安裝及環境變數設定")
     - [Win10環境下配置CUDA與cuDNN](https://dotblogs.com.tw/CYLcode/2018/09/20/163005 "Win10環境下配置CUDA與cuDNN")
   - 確認 CUDA 是否正確安裝的指令:
