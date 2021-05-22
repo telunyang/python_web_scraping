@@ -1,4 +1,16 @@
 .ipynb_checkpoints/
+
 chromedriver.exe
 chromedriver
+
 ig_test.ipynb
+fb_test.ipynb
+
+account.json
+jinyong.json
+train.json
+
+
+chromedriver_win32.zip
+
+browsermob*
