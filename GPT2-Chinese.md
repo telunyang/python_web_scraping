@@ -35,6 +35,7 @@
   - 流程二: 以 GPT-2 所使用的 Transformer 為例
     - 它使用 PyTorch 框架，所以要先了解 PyTorch 支援的 CUDA 版本: [INSTALL PYTORCH](https://pytorch.org/ "INSTALL PYTORCH")
     - 下載 CUDA 前，請先至 PyTorch 網站，了解目前支援 CUDA 的版本，下載 cuDNN 亦同。
+    - ![INSTALL PYTORCH](https://i.imgur.com/xBctpZ0.png "INSTALL PYTORCH")
   - 流程三: 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive")
   - 流程四: 下載: [NVIDIA cuDNN](https://developer.nvidia.com/cudnn "NVIDIA cuDNN")
     - 需要先申請帳號密碼，才能進入下載頁面
