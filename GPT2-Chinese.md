@@ -24,19 +24,28 @@
   - 手動下載：專案連結頁面 -> Code -> Download ZIP
 - 安裝套件:
   - 進入專案資料夾後輸入 ```pip install -r requirements.txt```
-- CUDA 下載與參考連結
+- 開始前的準備與流程
   - 說明:
-    - 以電腦有 GPU 的 Windows 環境為例
+    - 以 電腦 / 筆電 有 GPU 的 Windows 環境為例
     - 請注意 nvidia driver 與 CUDA、CUDA 與 CuDNN 之間的相依問題
-  - 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive") 
-  - 參考連結: 
-    - [CUDA 與 nvidia drver 相容表 (Table 2)](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html "CUDA 與 nvidia drver 相容表 (Table 2)")
-    - [CUDA 與 CuDNN 安裝及環境變數設定](https://qqmanlin.medium.com/cuda-%E8%88%87-cudnn-%E5%AE%89%E8%A3%9D-e982d92162af "CUDA 與 CuDNN 安裝及環境變數設定")
-    - [Win10環境下配置CUDA與cuDNN](https://dotblogs.com.tw/CYLcode/2018/09/20/163005 "Win10環境下配置CUDA與cuDNN")
-  - 確認 CUDA 是否正確安裝的指令:
-    - 版本: ```nvcc -V```
-    - GPU 當前狀態: ```nvidia-smi```
-  - 訓練資料結構:
+  - 流程一: 先確認 nVIDIA driver 是否安裝，如果不是進階使用者，建議用最新版 [NVIDIA 驅動程式下載](https://www.nvidia.com.tw/Download/index.aspx?lang=tw "NVIDIA 驅動程式下載")
+    - 下載方式分為「SD」與「GRD」
+      - 如果你需要對最新遊戲、DLC 提供最即時支援的玩家，請選擇 Game Ready 驅動程式。
+      - 如果你需要對影片編輯、動畫、攝影、繪圖設計和直播等創作流程提供穩定的品質，請選擇 Studio 驅動程式。
+  - 流程二: 以 GPT-2 所使用的 Transformer 為例
+    - 它使用 PyTorch 框架，所以要先了解 PyTorch 支援的 CUDA 版本: [INSTALL PYTORCH](https://pytorch.org/ "INSTALL PYTORCH")
+    - 下載 CUDA 前，請先至 PyTorch 網站，了解目前支援 CUDA 的版本，下載 cuDNN 亦同。
+  - 流程三: 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive")
+  - 流程四: 下載: [NVIDIA cuDNN](https://developer.nvidia.com/cudnn "NVIDIA cuDNN")
+    - 需要先申請帳號密碼，才能進入下載頁面
+- 安裝參考連結: 
+  - [Table 3. CUDA Toolkit and Corresponding Driver Versions](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html "Table 3. CUDA Toolkit and Corresponding Driver Versions")
+  - [CUDA 與 CuDNN 安裝及環境變數設定](https://qqmanlin.medium.com/cuda-%E8%88%87-cudnn-%E5%AE%89%E8%A3%9D-e982d92162af "CUDA 與 CuDNN 安裝及環境變數設定")
+  - [Win10環境下配置CUDA與cuDNN](https://dotblogs.com.tw/CYLcode/2018/09/20/163005 "Win10環境下配置CUDA與cuDNN")
+- 確認 CUDA 是否正確安裝的指令:
+  - 安裝完 nVIDIA driver 後可用的指令（GPU 當前狀態）: ```nvidia-smi```
+  - 安裝完 CUDA 後可用的指令（觀看目前安裝的 CUDA 版本）: ```nvcc -V```
+- 訓練資料結構:
     - [連結](https://github.com/Morizeyao/GPT2-Chinese/blob/master/train.json "連結")
 - 參考網頁:
   - [直觀理解 GPT-2 語言模型並生成金庸武俠小說](https://leemeng.tw/gpt2-language-model-generate-chinese-jing-yong-novels.html "直觀理解 GPT-2 語言模型並生成金庸武俠小說")
