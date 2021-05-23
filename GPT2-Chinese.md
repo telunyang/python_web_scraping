@@ -38,6 +38,9 @@
   - 流程三: 下載: [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive "CUDA Toolkit Archive")
   - 流程四: 下載: [NVIDIA cuDNN](https://developer.nvidia.com/cudnn "NVIDIA cuDNN")
     - 需要先申請帳號密碼，才能進入下載頁面
+  - 目前個人電腦環境所配對的 CUDA / cuDNN 下載連結
+    - CUDA: [CUDA Toolkit 11.1 Update 1 Downloads](https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_456.81_win10.exe "cuda_11.1.1_456.81_win10.exe")
+    - cuDNN: [cuDNN Library for Windows (x86)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/11.1_20201106/cudnn-11.1-windows-x64-v8.0.5.39.zip "cudnn-11.1-windows-x64-v8.0.5.39.zip")
 - 安裝參考連結: 
   - [Table 3. CUDA Toolkit and Corresponding Driver Versions](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html "Table 3. CUDA Toolkit and Corresponding Driver Versions")
   - [CUDA 與 CuDNN 安裝及環境變數設定](https://qqmanlin.medium.com/cuda-%E8%88%87-cudnn-%E5%AE%89%E8%A3%9D-e982d92162af "CUDA 與 CuDNN 安裝及環境變數設定")
