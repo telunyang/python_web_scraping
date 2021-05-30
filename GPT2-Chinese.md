@@ -18,7 +18,7 @@
   - Windows 10 or Linux Ubuntu 18.04+
   - Anaconda (Python 3.7+)
 - 專案連結:
-  - [GPT2-Chinese 專案連結](https://github.com/Morizeyao/GPT2-Chinese "GPT2-Chinese 專案連結")
+  - [GPT2-Chinese 專案連結](https://github.com/Morizeyao/GPT2-Chinese/tree/old_gpt_2_chinese_before_2021_4_22 "GPT2-Chinese 專案連結")
 - 下載方式:
   - Git 下載指令：```git clone https://github.com/Morizeyao/GPT2-Chinese.git```
   - 手動下載：專案連結頁面 -> Code -> Download ZIP
@@ -81,14 +81,13 @@
 
 ### （三）訓練文章的指令
 ```
-python train.py --device=0 --epochs=1 --batch_size=1 --data_path=data/jinyong.json --output_dir=model/
+python train.py --device=0 --epochs=1 --batch_size=1 --min_length=10 --raw_data_path=data/jinyong.json --output_dir=model/
 ```
 | 參數 | 說明 |
 | ------ | ------ |
 | train.py | 訓練用主程式 |
 | device | 指定用哪一個 GPU |
 | epochs | 訓練幾回 |
-| num_pieces | 訓練資料分成幾份 |
 | batch_size | 每次拿幾個樣本進行訓練。常見的是 2 的 n 次方 |
 | min_length | 每個樣本至少需要多少長度才拿來訓練 |
 | raw_data_path | 訓練資料 JSON 檔案路徑 |
