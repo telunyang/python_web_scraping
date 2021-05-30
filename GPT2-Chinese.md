@@ -81,7 +81,7 @@
 
 ### （三）訓練文章的指令
 ```
-python train.py --device=0 --epochs=1 --batch_size=1 --data_path=data/jinyong.json --output_dir=model/ --raw 
+python train.py --device=0 --epochs=1 --batch_size=1 --data_path=data/jinyong.json --output_dir=model/
 ```
 | 參數 | 說明 |
 | ------ | ------ |
