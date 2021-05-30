@@ -67,6 +67,9 @@
     - [連結](https://github.com/Morizeyao/GPT2-Chinese/blob/master/train.json "連結")
 - 參考網頁:
   - [直觀理解 GPT-2 語言模型並生成金庸武俠小說](https://leemeng.tw/gpt2-language-model-generate-chinese-jing-yong-novels.html "直觀理解 GPT-2 語言模型並生成金庸武俠小說")
+- 金庸小說訓練資料的爬取教學
+  - [selenium 取得金庸小說的內容，並存成txt與json檔](https://www.youtube.com/watch?v=jJzZcMjZsKM "[selenium]取得金庸小說的內容，並存成txt與json檔")
+  - [requests 取得金庸小說的內容，並存成txt與json檔](https://www.youtube.com/watch?v=JsmLtMC43Lc "[requests]取得金庸小說的內容，並存成txt與json檔")
 
 ## 四、在 Windows 的基本使用方式
 
