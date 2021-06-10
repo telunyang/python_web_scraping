@@ -86,7 +86,7 @@ python train.py --device=0 --epochs=1 --batch_size=1 --min_length=10 --raw_data_
 | 參數 | 說明 |
 | ------ | ------ |
 | train.py | 訓練用主程式 |
-| device | 指定用哪一個 GPU |
+| device | 指定用哪一個 GPU (沒 GPU，預設 CPU) |
 | epochs | 訓練幾回 |
 | batch_size | 每次拿幾個樣本進行訓練。常見的是 2 的 n 次方 |
 | min_length | 每個樣本至少需要多少長度才拿來訓練 |
@@ -109,6 +109,10 @@ python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三�
 | model_path | 生成文字所使用的語言模型資料夾路徑 |
 | save_samples | 有設定的話，會儲存生成文章的範本 |
 | save_samples_path | 生成文章範本的儲存路徑 |
+
+有關溫度（temperature）的參考資料
+[Deep learning with Python 學習筆記（10）生成式深度學習](https://www.cnblogs.com/zhhfan/p/10335907.html "Deep learning with Python 學習筆記（10）生成式深度學習")
+![更低的溫度= 更確定，更高的溫度= 更隨機](https://img2018.cnblogs.com/blog/1503464/201901/1503464-20190129211804100-1598676964.png "更高的溫度得到的是熵更大的採樣分佈，會生成更加出人意料、更加無結構的生成數據，而更低的溫度對應更小的隨機性，以及更加可預測的生成數據。對同一個概率分佈進行不同的重新加權。")
 
 ## 五、在 Linux、MacOS 的基本使用方式
 
