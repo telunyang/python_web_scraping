@@ -96,12 +96,11 @@ python train.py --device=0 --epochs=1 --batch_size=1 --min_length=10 --raw_data_
 
 ### （四）生成文章的指令
 ```
-python generate.py --topk=8 --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=model/model_epoch100_jinyong/ --save_samples --save_samples_path=output/
+python generate.py --length=250 --nsamples=3 --prefix="張無忌見三名老僧在片刻間連斃崑崙派四位高手，" --temperature=0.7 --model_path=model/model_epoch100_jinyong/ --save_samples --save_samples_path=output/
 ```
 | 參數 | 說明 |
 | ------ | ------ |
 | generate.py | 生成文字用主程式 |
-| topk | 前 k 個當中取 1 |
 | length | 生成文字的長度 |
 | nsamples | 生成幾個文章範本 |
 | prefix | 生成文章的前導文字，會影響生成的發展 |
@@ -122,7 +121,7 @@ time python3.7 train.py \
 --device=0 \
 --epochs=1 \
 --num_pieces=100 \
---batch_size=2 \
+--batch_size=32 \
 --min_length=10 \
 --raw_data_path=data/jinyong.json \
 --output_dir=model/ \
