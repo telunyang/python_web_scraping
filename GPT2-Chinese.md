@@ -64,7 +64,8 @@
   - 安裝完 nVIDIA driver 後可用的指令（GPU 當前狀態）: ```nvidia-smi```
   - 安裝完 CUDA 後可用的指令（觀看目前安裝的 CUDA 版本）: ```nvcc -V```
 - 訓練資料結構:
-    - [連結](https://github.com/Morizeyao/GPT2-Chinese/blob/master/train.json "連結")
+    - [連結](https://github.com/Morizeyao/GPT2-Chinese/blob/old_gpt_2_chinese_before_2021_4_22/train.json "連結")
+	- ![訓練格式](https://i.imgur.com/Dab1QPY.png "訓練格式")
 - 參考網頁:
   - [直觀理解 GPT-2 語言模型並生成金庸武俠小說](https://leemeng.tw/gpt2-language-model-generate-chinese-jing-yong-novels.html "直觀理解 GPT-2 語言模型並生成金庸武俠小說")
   - [使用GPT2-Chinese生成中文小說](https://www.cc.ntu.edu.tw/chinese/epaper/0058/20210920_5808.html "作者：楊德倫 / 資策會數位教育研究所數位人才培育中心講師")
