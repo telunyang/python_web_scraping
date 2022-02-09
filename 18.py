@@ -1,8 +1,7 @@
 '''
 匯入工具
 '''
-import pyautogui, cv2
-from time import sleep, time
+import pyautogui
 
 '''
 請在 Terminal 當中執行
