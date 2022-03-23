@@ -22,8 +22,6 @@
 - 下載方式:
   - Git 下載指令：```git clone https://github.com/Morizeyao/GPT2-Chinese.git```
   - 手動下載：專案連結頁面 -> Code -> Download ZIP
-- 安裝套件:
-  - 進入專案資料夾後輸入 ```pip install -r requirements.txt```
 - 開始前的準備與流程
   - 說明:
     - 以 電腦 / 筆電 有 GPU 的 Windows 環境為例
@@ -43,6 +41,8 @@
   - 目前個人電腦環境所配對的 CUDA / cuDNN 下載連結
     - CUDA: [CUDA Toolkit 11.1 Update 1 Downloads](https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_456.81_win10.exe "cuda_11.1.1_456.81_win10.exe")
     - cuDNN: [cuDNN Library for Windows (x86)](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/8.0.5/11.1_20201106/cudnn-11.1-windows-x64-v8.0.5.39.zip "cudnn-11.1-windows-x64-v8.0.5.39.zip")
+  - 安裝套件:
+    - 進入專案資料夾後輸入 ```pip install -r requirements.txt```
   - 檢測目前電腦有沒有支援 CUDA 的程式碼
     ```
     import torch
