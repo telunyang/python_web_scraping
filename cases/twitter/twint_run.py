@@ -13,7 +13,7 @@ nest_asyncio.apply()
 自訂函式
 '''
 # 取得 tweet 資料
-def get_tweets(lang, keywords since, until, save_path):
+def get_tweets(lang, keywords, since, until, save_path):
     # twint 設定
     config = twint.Config()
 
@@ -52,8 +52,8 @@ def main():
     # 設定初始值
     lang = 'zh-tw'
     keywords = '"機器學習" OR "自然語言處理"' 
-    since = '2022-06-01 00:00:00'
-    until = '2022-06-02 23:59:59'
+    since = '2022-05-01 00:00:00'
+    until = '2022-05-31 23:59:59'
     save_path = './twitter.csv'
 
     try:
@@ -64,9 +64,10 @@ def main():
                 until = str_datetime
 
             # 取得 tweets，拋出例外時，
-            get_tweets(lang, keywords since, until, save_path)
+            get_tweets(lang, keywords, since, until, save_path)
     except Exception as ex:
         # 等待一段時間，再繼續執行 (可能會佔用一定比例記憶體，記得隨時觀察，太高就先停掉)
+        print("主程式拋出例外，停止執行; 等待一段時間，程式自動重啟")
         sleep(1800)
         main()
 
