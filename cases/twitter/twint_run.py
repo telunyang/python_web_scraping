@@ -2,8 +2,8 @@
 匯入套件
 '''
 import twint
-import re
-import pandas as pd
+import os, sys
+from random import randint
 from time import time, sleep
 import nest_asyncio
 nest_asyncio.apply()
@@ -27,48 +27,37 @@ def get_tweets(lang, keywords, since, until, save_path):
     config.Hide_output = False
     config.Store_csv = True
     config.Output = save_path
+    config.Resume = './resume.txt'
 
     # 進行資料抓取
     twint.run.Search(config)
-
-# 取得最新檔案最後一筆資料的 created_at (until) 值
-def get_last_row_until(save_path):
-    # 預設 datetime 為空，以利後續判斷
-    str_datetime = None
-    try:
-        # pandas 讀取檔案最後一筆資料，取得 datetime 後回傳
-        df = pd.read_csv(save_path)
-        regex = r'\d{4}-\d{1,2}-\d{1,2}\s\d{1,2}:\d{1,2}:\d{1,2}'
-        match_datetime = re.search(regex, df.tail(1)['created_at'].values[0])
-        if match_datetime != None:
-            str_datetime = match_datetime[0]
-    except Exception as e:
-        # pandas 讀不了檔案的時候，會拋出例外，在這裡不需要做什麼，讓 str_datetime 回傳預設值
-        pass
-    return str_datetime
 
 # 主要執行程式
 def main():
     # 設定初始值
     lang = 'zh-tw'
-    keywords = '"機器學習" OR "自然語言處理"' 
-    since = '2022-05-01 00:00:00'
-    until = '2022-05-31 23:59:59'
+    keywords = '"機器學習" OR "自然語言處理"'
+    since = '2022-01-01 00:00:00'
+    until = '2022-06-30 23:59:59'
     save_path = './twitter.csv'
-
+    
     try:
         while True:
-            # 無論是手動或自動中斷，每次執行都會從
-            str_datetime = get_last_row_until(save_path)
-            if str_datetime != None:
-                until = str_datetime
-
-            # 取得 tweets，拋出例外時，
+            # 取得 tweets
+            print("執行中")
             get_tweets(lang, keywords, since, until, save_path)
-    except Exception as ex:
+
+            print("休息一下")
+            sleep(randint(1800, 2400))
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        print(str(e))
+
         # 等待一段時間，再繼續執行 (可能會佔用一定比例記憶體，記得隨時觀察，太高就先停掉)
         print("主程式拋出例外，停止執行; 等待一段時間，程式自動重啟")
-        sleep(1800)
+        sleep(randint(1800, 2400))
         main()
 
 '''
