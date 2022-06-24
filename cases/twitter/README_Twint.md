@@ -24,7 +24,7 @@ $ git clone https://github.com/minamotorin/twint.git
 $ cd twint
 $ pip install git+https://github.com/minamotorin/twint.git
 ```
-- 將 `basic.py` 複製/移動到 twint 資料夾中
+- 將 `twint_run.py` 複製/移動到 twint 資料夾中
 - (Optional) 修改 url.py
   - 如果發現 `config.lang = 'en'` 的設定有問題(例如大量非指定語系的資料)，可以嘗試以下作法:
     - 開啟 `/twint/twint/url.py`
@@ -36,8 +36,10 @@ $ pip install git+https://github.com/minamotorin/twint.git
   - 儲存 url.py
 - 安裝 nest_asyncio 套件
   - `$ pip install nest_asyncio`
+- 安裝 aiohttp 套件
+  - `$ pip install aiohttp==3.7.0`
 - 回到的 twint 資料夾，執行程式
-  - `$ python basic.py`
+  - `$ python twint_run.py`
 
 ## 2. woluxwolu 直接下載官方 twint，再拿 minamotorin 原始碼來套用的版本
 [Issue] Search just stops scraping
@@ -47,7 +49,7 @@ $ git clone https://github.com/woluxwolu/twint.git
 $ cd twint
 $ pip install git+https://github.com/woluxwolu/twint.git
 ```
-- 將 `basic.py` 複製/移動到 twint 資料夾中
+- 將 `twint_run.py` 複製/移動到 twint 資料夾中
 - (Optional) 修改 url.py
   - 如果發現 `config.lang = 'en'` 的設定有問題(例如大量非指定語系的資料)，可以嘗試以下作法:
     - 開啟 `/twint/twint/url.py`
@@ -59,8 +61,10 @@ $ pip install git+https://github.com/woluxwolu/twint.git
   - 儲存 url.py
 - 安裝 nest_asyncio 套件
   - `$ pip install nest_asyncio`
+- 安裝 aiohttp 套件
+  - `$ pip install aiohttp==3.7.0`
 - 回到的 twint 資料夾，執行程式
-  - `$ python basic.py`
+  - `$ python twint_run.py`
 
 ## 3. 官方版本安裝方式
 - 第一步：下載 twint
@@ -68,7 +72,7 @@ $ pip install git+https://github.com/woluxwolu/twint.git
     - 或是選擇 Download Zip，而後解壓縮，出現 twint 資料夾
   - 進入 twint 資料夾
     -  `$ cd twint`
-  - 將 `basic.py` 複製/移動一份到 twint 資料夾中
+  - 將 `twint_run.py` 複製/移動一份到 twint 資料夾中
 - 第二步：安裝套件
   - 開啟 requirements.txt
   - 將「aiohttp」改成「aiohttp==3.7.0」後儲存
@@ -76,6 +80,7 @@ $ pip install git+https://github.com/woluxwolu/twint.git
   - `pip install -r requirements.txt`
   - `pip install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint`
     - (Install from source code) 此時 twint 資料夾裡面，會自動產生 src 資料夾
+  - `pip install aiohttp==3.7.0`
 - Optional：修改 url.py
   - 如果發現 `config.lang = 'en'` 的設定有問題(例如大量非指定語系的資料)，可以嘗試以下作法:
     - 開啟 `src/twint/url.py`
@@ -85,6 +90,6 @@ $ pip install git+https://github.com/woluxwolu/twint.git
         q += f" lang:{config.Lang}"
     ```
   - 儲存 url.py
-- 第三步：執行 basic.py
+- 第三步：執行 twint_run.py
   - 回到剛開始進入的 twint 資料夾
-  - `$ python basic.py`
+  - `$ python twint_run.py`
