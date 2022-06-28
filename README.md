@@ -15,8 +15,6 @@ Python 網路爬蟲講義與範例
   - AIdea 電影評論分類 第4名 佳作 (總共 327 人參加)。
 - 資訊課程講師
   - 臺大計算機中心、資策會數位教育研究所數位人才培育中心（資展國際股份有限公司）。
-- 專案承攬
-  - 請見 [個人網站](https://darreninfo.cc "個人網站")。
 
 
 ## 提問方式
@@ -32,11 +30,11 @@ Python 網路爬蟲講義與範例
 
 
 ## 已歸檔教學參考影片
-- ~~[資展國際 - 養成班 BDSE22 - Python網路爬蟲](https://www.youtube.com/playlist?list=PLV4FeK54eNbwOKHOH4aWR95fo0cU4wH3O "Python網路爬蟲")~~
+- [資展國際 - 養成班 BDSE22 - Python網路爬蟲](https://www.youtube.com/playlist?list=PLV4FeK54eNbwOKHOH4aWR95fo0cU4wH3O "Python網路爬蟲")
 
-- ~~[臺大計算機中心 - Python 網路爬蟲 - 2021/10/01 開班](https://www.youtube.com/playlist?list=PLV4FeK54eNby0rK-Xpex6baRXE3DG-leg "Python網路爬蟲")~~
+- [臺大計算機中心 - Python 網路爬蟲 - 2021/10/01 開班](https://www.youtube.com/playlist?list=PLV4FeK54eNby0rK-Xpex6baRXE3DG-leg "Python網路爬蟲")
 
-- ~~[資展國際 - 在職班 20210925 至 20210926 - Python 網路爬蟲](https://www.youtube.com/playlist?list=PLV4FeK54eNbwqSdrLfXitmfb4HhB51yOM "Python網路爬蟲")~~
+- [資展國際 - 在職班 20210925 至 20210926 - Python 網路爬蟲](https://www.youtube.com/playlist?list=PLV4FeK54eNbwqSdrLfXitmfb4HhB51yOM "Python網路爬蟲")
 
 
 ## 延伸應用
