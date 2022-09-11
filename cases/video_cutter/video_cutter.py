@@ -108,11 +108,11 @@ file_name = 'output'
 ss = '00:03:30.00'
 
 # 切割影片 (設定持續時間，意思是從 ss 開始往後多少時間，速度快)
-# duration = '00:00:29.00'
+# duration = '00:00:29.00' # 或是直接寫秒數，例如 29
 # cmd = [
 #     ffmpeg_path,
 #     '-ss', ss, 
-#     '-i', f'{path_save_to}/{video_id}.mp4', 
+#     '-i', f'{path_save_output_video_to}/{video_id}.mp4', 
 #     '-t', duration,
 #     '-y', 
 #     '-c', 'copy', 
@@ -120,7 +120,7 @@ ss = '00:03:30.00'
 # ]
 
 # 切割影片 (準確指定結束時間，速度慢)
-to = '00:04:00.00'
+to = '00:04:00.00' 
 cmd = [
     ffmpeg_path, 
     '-i', f'{path_save_output_video_to}/{video_id}.mp4', 
