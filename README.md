@@ -11,8 +11,8 @@ Python 網路爬蟲講義與範例
 - 程式應用服務開發人員
   - 使用 JavaScript、MySQL/MariaDB、PHP、Python。
 - 參加競賽
-  - AI CUP 2019 論文分類 前標。
-  - AIdea 電影評論分類 第4名 佳作 (總共 327 人參加)。
+  - AI CUP 2019 論文分類 前標 [認證連結](https://certs.turingchain.tech/ipfs/?hash=QmdZVZUBMcyfEkQLj8DfUYRWUfmpn2zFAE7Vt5G8uVT7xy) 。
+  - AIdea 電影評論分類 第4名 佳作 (總共 327 人參加) [頒獎影片](https://youtu.be/7U3qbniZ93s) 。
   - ROCLING 2022 Shared Task 中文健康照護命名實體辨識 第 3 名。
 - 資訊課程講師
   - 臺大計算機中心、資策會數位教育研究所數位人才培育中心（資展國際股份有限公司）。
