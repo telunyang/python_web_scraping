@@ -7,16 +7,6 @@ $ pip install wget
 執行指令 (請先確認「下載路徑相關設定」後，再執行)
 $ python video_cutter.py
 
-下載 yt-dlp (Linux 和 MacOS 版本，要設定「chmod +x yt-dlp」，MacOS 也要改成 yt-dlp)
-- Windows: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe
-- Linux: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
-- MacOS: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos
-
-下載 ffmpeg
-- Windows: https://www.gyan.dev/ffmpeg/builds/
-- Linux: https://ffmpeg.org/download.html#build-linux
-- MacOS: https://ffmpeg.org/download.html#build-mac
-
 參考網頁
 [1] How to download portion of video with youtube-dl command?
 https://unix.stackexchange.com/questions/230481/how-to-download-portion-of-video-with-youtube-dl-command
@@ -24,6 +14,14 @@ https://unix.stackexchange.com/questions/230481/how-to-download-portion-of-video
 https://trac.ffmpeg.org/wiki/Seeking
 [3] Python 使用 zipfile 模組壓縮、解壓縮 ZIP 檔案教學與範例
 https://officeguide.cc/python-zipfile-module-compression-decompression-tutorial-examples/
+[4] 下載 yt-dlp (Linux 和 MacOS 版本，要設定「chmod +x yt-dlp」，MacOS 也要改成 yt-dlp)
+- Windows: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe
+- Linux: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
+- MacOS: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos
+[5] 下載 ffmpeg
+- Windows: https://www.gyan.dev/ffmpeg/builds/
+- Linux: https://ffmpeg.org/download.html#build-linux
+- MacOS: https://ffmpeg.org/download.html#build-mac
 '''
 
 import subprocess, os, wget, zipfile
@@ -68,13 +66,6 @@ video_url = f'https://www.youtube.com/watch?v={video_id}'
 # video_id = '493899461941993'
 # video_url = f'https://www.facebook.com/ithomeonline/videos/{video_id}'
 
-
-
-
-
-
-
-
 '''
 下載路徑相關設定
 '''
@@ -90,7 +81,6 @@ path_ffmpeg = rf'{path_ffmpeg_bin_folder}/ffmpeg.exe'
 
 # yt-dlp 存放路徑 (預設放在 ffmpeg/bin 底下)
 path_yt_dlp = f'{path_ffmpeg_bin_folder}/yt-dlp.exe'
-
 
 '''
 下載工具
