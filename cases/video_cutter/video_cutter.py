@@ -31,11 +31,45 @@ import subprocess, os, wget, zipfile
 from pprint import pprint
 
 
+'''
+簡易設定
+'''
+# True 代表已經下載過，跳過工具下載，直接剪輯影片，沒有工具會報錯；反之則加入下載工具流程
+has_tools = False
 
+# True 代表程式整體執行結束後，要刪除影音檔；反之則保留下來
+delete_video = False
+
+# 輸出切割後的影片檔案名稱
+file_name = 'output'
+
+# 設定影片切割的開始時間 (記得自己先看過)
+ss = '01:04:57.00'
+
+# 選擇方式 1 或 2 (會影響執行程式的指令選擇)
+choice = 2 
+
+# 選擇方式 1: 連續播放時間
+duration = '00:00:29.00' # 或是直接寫秒數，例如 29
+
+# 選擇方式 2: 預期結束時間
+to = '01:08:23.30' 
+
+# 設定 YouTube 影片 id 和 video 連結
+video_id = 'oLpsFPGl-5w'
+video_url = f'https://www.youtube.com/watch?v={video_id}'
 
 
 '''
-下載路徑相關設定 (本案例為 Windows 10 環境，作業系統不同的話，設定也要不同)
+備註:
+Facebook 的 video 也可以用
+'''
+# video_id = '493899461941993'
+# video_url = f'https://www.facebook.com/ithomeonline/videos/{video_id}'
+
+
+'''
+下載路徑相關設定 (作業系統不同的話，設定也要不同)
 '''
 # 工具下載路徑 (建議放在帳號權限最大的地方，同時確認是否有該路徑)
 path_tools_download = r'C:/Users/Owner/Desktop'
@@ -67,9 +101,6 @@ path_ffmpeg = rf'{path_ffmpeg_folder}/bin/ffmpeg.exe'
 '''
 判斷工具是否已經下載
 '''
-# True 代表已經下載過，跳過工具下載，直接剪輯影片，沒有工具會報錯；反之則加入下載工具流程
-has_tools = False
-
 # 若 has_tools 為 False，代表沒有工具，則自動下載
 if not has_tools:
     # 下載 yt-dlp
@@ -99,30 +130,21 @@ if not has_tools:
 '''
 影片下載
 '''
-# 設定 YouTube 影片 id 和 video 連結
-video_id = 'xwEzl1X_LNE'
-video_url = f'https://www.youtube.com/watch?v={video_id}'
-'''
-備註:
-Facebook 的 video 也可以用
+# 判斷影片是否已經下載
+if not os.path.exists(f'{path_save_output_video_to}/{video_id}.mp4'):
+    # 設定下載影片指令
+    cmd = [
+        path_yt_dlp,
+        video_url,
+        '-f', 'b[ext=mp4]', 
+        '-o', f'{path_save_output_video_to}/%(id)s.%(ext)s'
+    ]
 
-例如:
-video_id = '493899461941993'
-video_url = f'https://www.facebook.com/ithomeonline/videos/{video_id}'
-'''
-# 設定下載影片指令
-cmd = [
-    path_yt_dlp,
-    video_url,
-    '-f', 'b[ext=mp4]', 
-    '-o', f'{path_save_output_video_to}/%(id)s.%(ext)s'
-]
-
-# 執行指令，並取得輸出訊息
-output = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-print("下載影片的輸出訊息:")
-pprint(output.stdout.decode('utf-8'))
-print()
+    # 執行指令，並取得輸出訊息
+    output = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    print("下載影片的輸出訊息:")
+    pprint(output.stdout.decode('utf-8'))
+    print()
 
 
 
@@ -131,36 +153,27 @@ print()
 '''
 影像處理
 '''
-# 輸出切割後的影片檔案名稱
-file_name = 'output'
-
-# 設定影片切割的開始時間 (記得自己先看過)
-ss = '00:03:30.00'
-
-
-# # 切割影片 方式1 (設定持續時間，意思是從 ss 開始往後多少時間，速度快)
-# duration = '00:00:29.00' # 或是直接寫秒數，例如 29
-# cmd = [
-#     path_ffmpeg,
-#     '-ss', ss, 
-#     '-i', f'{path_save_output_video_to}/{video_id}.mp4', 
-#     '-t', duration,
-#     '-y', 
-#     '-c', 'copy', 
-#     rf'{path_save_output_video_to}/{file_name}.mp4'
-# ]
-
-# 切割影片 方式2 (準確指定結束時間，就是真的從 ss 看到 to，速度慢)
-to = '00:04:00.00' 
-cmd = [
-    path_ffmpeg, 
-    '-i', f'{path_save_output_video_to}/{video_id}.mp4', 
-    '-ss', ss, 
-    '-to', to,
-    '-y', 
-    '-c', 'copy', 
-    rf'{path_save_output_video_to}/{file_name}.mp4'
-]
+if choice == 1: # 切割影片 方式1 (設定持續時間，意思是從 ss 開始往後多少時間，速度快)
+    cmd = [
+        path_ffmpeg,
+        '-ss', ss, 
+        '-i', f'{path_save_output_video_to}/{video_id}.mp4', 
+        '-t', duration,
+        '-y', 
+        '-c', 'copy', 
+        rf'{path_save_output_video_to}/{file_name}.mp4'
+    ]
+elif choice == 2:
+    # 切割影片 方式2 (準確指定結束時間，就是真的從 ss 看到 to，速度慢)
+    cmd = [
+        path_ffmpeg, 
+        '-i', f'{path_save_output_video_to}/{video_id}.mp4', 
+        '-ss', ss, 
+        '-to', to,
+        '-y', 
+        '-c', 'copy', 
+        rf'{path_save_output_video_to}/{file_name}.mp4'
+    ]
 
 # 執行指令
 output = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -168,5 +181,6 @@ print("切割影片的輸出訊息:")
 pprint(output.stdout.decode('utf-8'))
 print()
 
-# 刪除原始影片檔案
-os.remove(f'{path_save_output_video_to}/{video_id}.mp4')
+# 是否刪除原始影片檔案
+if delete_video:
+    os.remove(f'{path_save_output_video_to}/{video_id}.mp4')
