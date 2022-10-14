@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- leaflet css 設定 -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     
     <!-- 自訂 css -->
     <style>
@@ -38,8 +38,8 @@
         <tbody></tbody>
     </table>
 
-    <!-- leaflet cdn -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!-- leaflet JS cdn -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     
     <!-- 自訂 js -->
     <script>
@@ -66,7 +66,7 @@
          * 1. 鐵人賽：ES6 原生 Fetch 遠端資料方法
          * https://www.casper.tw/javascript/2017/12/28/javascript-fetch/
          */
-        fetch('https://darreninfo.cc/tools/web_api_coffee.php',{
+        fetch('http://localhost:5000/taipei',{
             method: "GET"
         }).then(function(response){
             /**
@@ -108,7 +108,7 @@
 
                 //建立 markers
                 let marker = L.marker([o['latitude'], o['longitude']])
-                .bindPopup(o['name'])
+                .bindPopup(`${o['name']}<br><a href="${o['url']}" target="_blank">連結</a>`)
                 .openPopup();
 
                 //自訂事件

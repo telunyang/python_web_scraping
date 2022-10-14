@@ -25,15 +25,11 @@
 ### 1.2 按下 Tutorials 連結，選擇 Leaflet Quick Start Guide
 - 放置 Leaflet CSS (CDN) 檔案在 index.html 的 `</head>` 之前：
 ```html
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-   crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
 ```
 - 放置 Leaflet JavaScript (CDN) 檔案在 `</body>` 之前：
 ```html
-<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-   crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
 ```
 - 放置 `<div id="map"></div>` 到 `<body>` 之後：
 ```html
@@ -57,7 +53,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([25.0339145, 121.5412233]).addTo(map)
-    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .bindPopup('自訂訊息<br>可以放 HTML')
     .openPopup();
 </script>
 ```
@@ -78,7 +74,7 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- leaflet css 設定 -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     
     <!-- 自訂 css -->
     <style>
@@ -110,8 +106,8 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
         <tbody></tbody>
     </table>
 
-    <!-- leaflet cdn -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!-- leaflet JS cdn -->
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     
     <!-- 自訂 js -->
     <script>
@@ -138,7 +134,7 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
          * 1. 鐵人賽：ES6 原生 Fetch 遠端資料方法
          * https://www.casper.tw/javascript/2017/12/28/javascript-fetch/
          */
-        fetch('https://darreninfo.cc/tools/web_api_coffee.php',{
+        fetch('http://localhost:5000/taipei',{
             method: "GET"
         }).then(function(response){
             /**
@@ -180,7 +176,7 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
 
                 //建立 markers
                 let marker = L.marker([o['latitude'], o['longitude']])
-                .bindPopup(o['name'])
+                .bindPopup(`${o['name']}<br><a href="${o['url']}" target="_blank">連結</a>`)
                 .openPopup();
 
                 //自訂事件
