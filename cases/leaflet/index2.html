@@ -33,7 +33,7 @@
 
         //設定圖層群組
         let layerGroup = null;
-        let arrLayers = [];
+        let arrMarkers = [];
         
         // 按鈕事件，取得 Web API 的回傳資料
         document.querySelector('button#btn_request').addEventListener('click', function(event){
@@ -46,7 +46,7 @@
              * 1. 鐵人賽：ES6 原生 Fetch 遠端資料方法
              * https://www.casper.tw/javascript/2017/12/28/javascript-fetch/
              */
-            fetch('http://localhost:5000/garbage_truck_taipei',{
+            fetch('http://localhost:5000/some_garbage_truck_taipei?page=1',{
                 method: "GET"
             }).then(function(response){
                 /**
