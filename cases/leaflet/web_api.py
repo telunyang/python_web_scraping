@@ -2,9 +2,9 @@
 需要安裝 flask、requests
 $ pip install -U Flask requests
 '''
-from flask import Flask, make_response
+from flask import Flask, make_response, request
 import requests as req
-import json
+import json, math
 
 
 
@@ -73,39 +73,71 @@ def get_cafe_info_in_kaohsiung():
 '''
 Web API (資料來源: https://data.taipei/dataset/detail?id=6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae)
 '''
-# 臺北市垃圾車點位路線資訊
-@app.route('/garbage_truck_taipei', methods=['GET'])
-def get_garbage_truck_in_taipei():
+# 臺北市垃圾車點位路線資訊 (分頁)
+@app.route('/some_garbage_trucks_in_taipei', methods=['GET'])
+def get_some_garbage_trucks_in_taipei():
     # 先對 垃圾車點位路線資訊 Web API 發送 GET 請求 (request)，取得對方伺服器的回應 (response)，
     # 其中回應帶有垃圾車點位路線資訊列表的資訊
-    
-    '''取得部分資料'''
-    limit = 1000
-    offset = 0
+
+    '''取得資料總筆數'''
+    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire'
+    res = req.get(url)
+    count = res.json()['result']['count']
+
+    '''取得總頁數'''
+    limit = 1000 # 希望一頁有幾筆
+    pages = math.ceil(count / limit) # 取得總頁數
+
+    '''取得 GET 請求的 page 值'''
+    page = 1
+    if 'page' in request.args:
+        page = int(request.args.get('page'))
+        if page < 1: page = 1 # 指定頁碼小於 1，則設定成 1
+        elif page > pages: page = pages # 指定頁碼大於總頁數，則設定成總頁數 (代表最後一頁)
+
+    '''取得指定分頁資料'''
+    offset = (page - 1) * limit
     url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire&offset={offset}&limit={limit}'
     res = req.get(url)
-    
+
+    '''自訂回應和標頭'''
     # 自訂回應，同時將垃圾車點位路線資訊列表資訊附加在回應中
     response = make_response(json.dumps(res.json()['result']['results'], ensure_ascii=False))
 
+    # 讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
+    response.headers["Content-Type"] = "application/json"
+    response.headers['Access-Control-Allow-Origin'] = '*'
 
+    '''回傳自訂回應'''
+    return response
 
-    '''取得所有資料'''
+# 臺北市垃圾車點位路線資訊 (全部)
+@app.route('/all_garbage_trucks_in_taipei', methods=['GET'])
+def get_all_garbage_trucks_in_taipei():
+    # 先對 垃圾車點位路線資訊 Web API 發送 GET 請求 (request)，取得對方伺服器的回應 (response)，
+    # 其中回應帶有垃圾車點位路線資訊列表的資訊
+
+    '''取得資料總筆數'''
+    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire'
+    res = req.get(url)
+    count = res.json()['result']['count']
+
+    '''取得總頁數'''
+    limit = 1000 # 希望一頁有幾筆
+    pages = math.ceil(count / limit) # 取得總頁數
+
+    '''取得全部資料'''
     list_results = []
-    pages = 5
     for page in range(1, pages + 1):
-        limit = 1000
         offset = (page - 1) * limit
         url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire&offset={offset}&limit={limit}'
         res = req.get(url)
         list_results.extend(res.json()['result']['results'])
 
+    '''自訂回應標頭'''
     # 自訂回應，同時將垃圾車點位路線資訊列表資訊附加在回應中
     response = make_response(json.dumps(list_results, ensure_ascii=False))
 
-
-
-    '''自訂回應標頭'''
     # 讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
     response.headers["Content-Type"] = "application/json"
     response.headers['Access-Control-Allow-Origin'] = '*'
