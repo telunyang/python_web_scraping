@@ -50,7 +50,7 @@
 
         //設定圖層群組
         let layerGroup = null;
-        let arrLayers = [];
+        let arrMarkers = [];
         
         // 按鈕事件，取得 Web API 的回傳資料
         document.querySelector('button#btn_request').addEventListener('click', function(event){
@@ -80,7 +80,7 @@
 
                     //變數初始化
                     layerGroup = null;
-                    arrLayers = [];
+                    arrMarkers = [];
                 }
 
                 // 取得 tbody 元素
@@ -110,12 +110,12 @@
                         console.log(o);
                     });
 
-                    //將 markers 各別放到空陣列 arrLayers 當中
-                    arrLayers.push(marker);
+                    //將 markers 各別放到空陣列 arrMarkers 當中
+                    arrMarkers.push(marker);
                 }
 
-                //迴圈執行完畢後，將 arrLayers 放到 layerGroup 當中
-                layerGroup = L.layerGroup(arrLayers);
+                //迴圈執行完畢後，將 arrMarkers 放到 layerGroup 當中
+                layerGroup = L.layerGroup(arrMarkers);
 
                 //將 layerGroup 放到 map 當中
                 layerGroup.addTo(map);
