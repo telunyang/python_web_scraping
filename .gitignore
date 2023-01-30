@@ -1,5 +1,4 @@
 .ipynb_checkpoints/
 dev/
-chromedriver.exe
-chromedriver
-cases/*jinyong*
+chromedriver*
+hetu*
