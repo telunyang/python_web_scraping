@@ -73,6 +73,28 @@ def get_cafe_info_in_kaohsiung():
 '''
 Web API (資料來源: https://data.taipei/dataset/detail?id=6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae)
 '''
+# 臺北市垃圾車點位路線資訊 (取得總筆數)
+@app.route('/count_garbage_trucks_in_taipei', methods=['GET'])
+def get_count_garbage_trucks_in_taipei():
+    # 先對 垃圾車點位路線資訊 Web API 發送 GET 請求 (request)，取得對方伺服器的回應 (response)，
+    # 其中回應帶有垃圾車點位路線資訊列表的資訊
+
+    '''取得資料總筆數'''
+    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire&offset=0&limit=1'
+    res = req.get(url)
+    count = res.json()['result']['count']
+
+    '''自訂回應和標頭'''
+    # 自訂回應，同時將垃圾車點位路線資訊列表資訊附加在回應中
+    response = make_response({'count': count})
+
+    # 讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
+    response.headers["Content-Type"] = "application/json"
+    response.headers['Access-Control-Allow-Origin'] = '*'
+
+    '''回傳自訂回應'''
+    return response
+
 # 臺北市垃圾車點位路線資訊 (分頁)
 @app.route('/some_garbage_trucks_in_taipei', methods=['GET'])
 def get_some_garbage_trucks_in_taipei():
@@ -80,7 +102,7 @@ def get_some_garbage_trucks_in_taipei():
     # 其中回應帶有垃圾車點位路線資訊列表的資訊
 
     '''取得資料總筆數'''
-    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire'
+    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire&offset=0&limit=1'
     res = req.get(url)
     count = res.json()['result']['count']
 
@@ -118,7 +140,7 @@ def get_all_garbage_trucks_in_taipei():
     # 其中回應帶有垃圾車點位路線資訊列表的資訊
 
     '''取得資料總筆數'''
-    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire'
+    url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire&offset=0&limit=1'
     res = req.get(url)
     count = res.json()['result']['count']
 
