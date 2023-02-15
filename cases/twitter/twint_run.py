@@ -24,6 +24,7 @@ def get_tweets(lang, keywords, since, until, save_path):
     config.Since = since
     config.Until = until
     # config.Geo = "48.880048,2.385939,5km"
+    config.Location = True 
     config.Hide_output = False
     config.Store_csv = True
     config.Output = save_path
@@ -38,7 +39,7 @@ def main():
     lang = 'zh-tw'
     keywords = '"機器學習" OR "自然語言處理"'
     since = '2022-01-01 00:00:00'
-    until = '2022-06-30 23:59:59'
+    until = '2023-04-15 23:59:59'
     save_path = './twitter.csv'
     
     try:

@@ -15,6 +15,7 @@ config.Limit = 1000000000000 # 限定抓多少筆資料
 config.Since = '2020-01-01 00:00:00' # 設定 since 與 until
 config.Until = '2022-06-30 23:59:59' # since 與 until 記得至少相差 1 天
 # config.Geo = "48.880048,2.385939,5km"
+config.Location = True # 加入發文地點
 config.Hide_output = False # 是否隱藏輸出 (debug 時可以開啟，正式使用時，建議關閉，可以減少 I/O)
 config.Store_csv = True # 儲存在 csv 檔
 config.Output = "./twitter.csv" # 輸出儲存資料的路徑
