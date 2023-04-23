@@ -2,28 +2,30 @@
 參考連結:
 - [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
 - [LINE Developer Documentation](https://developers.line.biz/en/docs/)
-- [Message API - Overview](https://developers.line.biz/en/docs/messaging-api/overview/)
 - [Message API](https://developers.line.biz/en/reference/messaging-api/)
+- [Building a bot](https://developers.line.biz/en/docs/messaging-api/building-bot/#set-up-bot-on-line-developers-console)
 - [Ngrok](https://ngrok.com/)
 
 # (Required) 設定 LINE BOT
-1. 登入 [LINE Developers](https://developers.line.biz/console/profile)。
-2. 新增 Provider，並輸入 Provider name。
-3. 新增該 Provider 下的 Channel (Create a new channel)。
-4. 選擇 Messaging API。
-5. 依需求選擇、填寫基本資料，勾選頁面底下兩個「I have read agree to the ...」，按下 Create。
-6. 選擇先前 Create 的 Channel。
-7. 到 Basic settings 標籤取得 Channel secret。
-8. 到 Messaging API 標籤：
-  - 設定 Webhook URL，並驗證 (verify) 是否請求成功。
+1. 安裝套件: `pip install line-bot-sdk`
+2. 登入 [LINE Developers](https://developers.line.biz/console/profile)。
+3. 新增 Provider，並輸入 Provider name。
+4. 新增該 Provider 下的 Channel (Create a new channel)。
+5. 選擇 Messaging API。
+6. 依需求選擇、填寫基本資料，勾選頁面底下兩個「I have read agree to the ...」，按下 Create。
+7. 選擇先前 Create 的 Channel。
+8. 到 Basic settings 標籤取得 `Channel secret`。
+9. 到 Messaging API 標籤：
+  - 取得 `Channel access token` (long-lived)。
+  - 將 `Channel secret` 和 `Channel access token` 複製貼上到專案資料夾裡面的 `config.py` 當中
+  - ![](https://i.imgur.com/jiSR4k1.png)
+  - 設定 Webhook URL，並驗證 (verify) 是否請求成功 (success)。
     - **註: 若需要測試環境，可以選擇 ngrok 工具**
   - 開啟 webhook (Use webhook)。
   - 將 Auto-reply messages 設定為 Disabled。
   - 視情況設定 Greeting messages (Enabled 或 Disabled)
     - 打算開啟的話，按下右側的 Edit，在回應功能裡的「加入好友的歡迎訊息」下，按下開啟設定畫面。
-  - 取得 Channel access token (long-lived)。
-9. **將 Channel secret 和 Channel access token 複製貼上到專案資料夾裡面的 config.py 當中**
-![](https://i.imgur.com/jiSR4k1.png)
+
 
 
 # （Optional）模擬 SSL 環境設定: ngrok
@@ -33,7 +35,7 @@
 - 進入 [ngrok 首頁](https://ngrok.com/)。
 - 註冊一個帳號，或是使用 GitHub 或 Google 帳號來登入。
 - 進入儀表板頁面：
-![儀表板畫面](https://i.imgur.com/7exSHP9.png)
+- ![儀表板畫面](https://i.imgur.com/7exSHP9.png)
 - 在儀表板上方，依作業系統規格來選擇 ngrok 檔案下載
   - 裡面是 ngrok 執行檔，並解壓縮到指定資料夾中，或是保留在專案目錄當中。
 - 額外開啟 Terminal，到指定資料夾或專案目錄中，以 ngrok 執行檔為主。
@@ -60,7 +62,7 @@ $ ./ngrok http 5005
 
 ## 4. 回到 LINE Developers
 - 進入先前建立的 Channel。
-- 在 Webhook settings 下面的 Webhook URL 當中，編輯/填寫 `https://xxxx-xxxx-xxxx-x-xxxx-xxxx-xxxx-xxxx-xxxx.jp.ngrok.io/callback`，記得後面要加上 /**callback**，這邊會跟主程式相呼應。
+- 在 Webhook settings 下面的 Webhook URL 當中，編輯/填寫 `https://xxxx-xxxx-xxxx-x-xxxx-xxxx-xxxx-xxxx-xxxx.jp.ngrok.io/callback`，記得後面要加上 **/callback**，這邊會跟主程式相呼應。
 - 按下 Update 來儲存設定。
 - 開啟 Use webhook。
 ![](https://i.imgur.com/hSf3fYO.png)

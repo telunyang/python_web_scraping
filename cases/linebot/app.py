@@ -53,9 +53,13 @@ def handle_message(event):
     '''
     官方範例 - 回覆單一文字內容
     '''
+    # 取得自己的發送的文字
+    str_reply = event.message.text
+
+    # 將文字透過 LINE Bot 回覆給使用者
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text)
+        TextSendMessage(text=str_reply)
     )
     
 
@@ -63,27 +67,27 @@ def handle_message(event):
     '''
     回覆多個文字內容 (最多 5 個)
     '''
-    # 先整理用到的句子
-    list_sentence = [
-        '世上最遙遠的距離',
-        '不是生與死的距離',
-        '不是天各一方',
-        '而是我就站在\n你面前',
-        '你卻不知道...',
-    ]
+    # # 先整理用到的句子
+    # list_sentence = [
+    #     '世上最遙遠的距離',
+    #     '不是生與死的距離',
+    #     '不是天各一方',
+    #     '而是我就站在\n你面前',
+    #     '你卻不知道...',
+    # ]
 
-    # 初始化 list，用在 reply
-    list_reply = []
+    # # 初始化 list，用在 reply
+    # list_reply = []
 
-    # 整合 TextSendMessage
-    for sentence in list_sentence:
-        list_reply.append( TextSendMessage(text=sentence) )
+    # # 整合 TextSendMessage
+    # for sentence in list_sentence:
+    #     list_reply.append( TextSendMessage(text=sentence) )
 
-    # 將所有句子透過 LINE Bot 回覆給使用者
-    line_bot_api.reply_message(
-        event.reply_token,
-        list_reply
-    )
+    # # 將所有句子透過 LINE Bot 回覆給使用者
+    # line_bot_api.reply_message(
+    #     event.reply_token,
+    #     list_reply
+    # )
 
 
 '''
