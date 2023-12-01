@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- https://lonekorean.github.io/highlight-within-textarea/ -->
+    <link href="./css/jquery.highlight-within-textarea.css" rel="stylesheet">
+
+    <style>
+        textarea#txt {
+            width: 500px;
+            height: 500px;
+        }
+
+        audio#text_to_speech{
+            display: none;
+        }
+
+        .yellow {
+            background-color: #ffec99;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://www.w3schools.com/tags/ref_av_dom.asp -->
+    <audio id="text_to_speech" controls autoplay>
+        <source src="" type="audio/mpeg">
+        您的瀏覽器不支援 audio 元素
+    </audio>
+
+    <!-- 席慕蓉: https://kknews.cc/zh-tw/culture/nm6yb2.html -->
+    <textarea id="txt"></textarea>
+    
+    <!-- CDN: jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- 參考網址: https://lonekorean.github.io/highlight-within-textarea/ -->
+    <script src="./js/jquery.highlight-within-textarea.js"></script>
+
+    <button id="btn_play">播放</button>
+
+    <!-- 自訂 JS -->
+    <script>
+        //放置切割後文字的陣列 (透過斷行、逗號等符號分割儲存)
+        let arr;
+
+        //指定第幾句作為首播(使用陣列索引格式，從 0 開始)
+        let index = 0;
+
+        //文字欄位元素
+        let txt = document.querySelector('textarea#txt');
+
+        //初始化 audio 元素
+        let audio = document.querySelector('audio#text_to_speech');
+
+        //當我們貼上文章，將滑鼠游標焦點離開 textarea 的時候
+        document.querySelector('textarea#txt').addEventListener('focusout', function(event){
+            //取得 textarea 的內容
+            let content = txt.value;
+
+            //將文字以指定字元、字串或符號進行切割，建立陣列
+            let regex = /\n|,|\.|，|。|　/;
+            arr = content.split(regex);
+
+            //移除空字串
+            for(let key in arr){
+                //若是移除，當前 key 所代表的 value，會變成 undefined
+                if(arr[key] == '') delete arr[key];
+            }
+
+            //建立暫存空陣列 arrTmp，將原先 arr 的值照順序寫入 arrTmp，之後再替換
+            let arrTmp = [];
+            for(let value of arr){
+                if(value != undefined) arrTmp.push(value);
+            }
+
+            //將整理好資料的 arrTmp，變成 arr
+            arr = arrTmp;
+
+            //顯示 arr 內容
+            console.log(arr);
+        });
+
+        //取得第幾句的聲音檔案，並加以播放
+        function getAudio(i){
+            fetch("http://localhost:5000/sound", {
+                //RESTful 方法，常見的有 GET, POST, PUT, DELETE
+                method: 'POST', 
+                //設定標頭: 指明使用者代理為桌面瀏覽器，同時傳遞的資料為 json 格式 
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                /**
+                 * 傳遞資料的方法若為 POST，需要先設定成物件({…})，
+                 * 以 body 作為 key/attr，
+                 * 最後轉成透過 JSON.stringify() 將物件字串化，才能正確執行
+                 * 
+                 * 參考連結: JavaScript Fetch API 使用教學
+                 * https://www.oxxostudio.tw/articles/201908/js-fetch.html
+                 */
+                body: JSON.stringify({
+                    q: arr[i]
+                })
+            }).then(function(response){
+                /** 
+                * 回應的結構列表:
+                * response.json() : JSON 物件
+                * response.text() : 純文字
+                * response.blob() : 二進制檔案的內文，通常用在圖片的 base64 編碼
+                */
+                return response.json();
+            }).then(function(objJson){
+                if( objJson['success'] ){
+                    //設定 audio 子元素 source 的 src 為聲音連結
+                    audio.querySelector('source').setAttribute('src', objJson['link']);
+
+                    //讀取聲音連結檔
+                    audio.load();
+
+                    //播放
+                    audio.play();
+
+                    //反白(強調)文字
+                    $(txt).highlightWithinTextarea({
+                        highlight: [{
+                            highlight: arr[i],
+                            className: 'yellow'
+                        }]
+                    });
+                }
+            }).catch(function(error){
+                console.error(error);
+            });
+        }
+
+        //點下播放鈕的事件
+        document.querySelector('button#btn_play').addEventListener('click', function(event){
+            event.preventDefault();
+
+            //播放文字聲音
+            getAudio(index);
+        });
+
+        //播放完後，再取得下一句的聲音連結，直到播完為止
+        document.querySelector('audio#text_to_speech').addEventListener('ended', function(event){
+            //為了換下一句用，進行索引遞增
+            index++;
+            
+            //若指定的陣列索引不是 undefined，代表有文字
+            if(arr[index] != undefined) {
+                //取得聲音並播放
+                getAudio(index);
+            } else {
+                //初始化 index，讓程式可以從首句開始播放
+                index = 0;
+            }
+        });
+    </script>
+
+</body>
+</html>
