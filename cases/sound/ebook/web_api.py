@@ -85,11 +85,11 @@ if __name__ == '__main__':
     app.run(
         # 除錯模式為 True，服務執行期間有錯誤，會將 Traceback 顯示在網頁上，
         # 反之則顯示一般的 Internal Server Error
-        debug=False,
+        debug=True,
 
         # 127.0.0.1 或 localhost 限定本機使用服務，
         # 0.0.0.0 代表所有知道主機實際 IP 的人都能存取 
-        host='0.0.0.0',
+        host='127.0.0.1',
 
         # 網址或 IP 後面附加的 Port 號，代表服務由該 Port 號提供
         port=5000 
