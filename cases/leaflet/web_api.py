@@ -1,10 +1,15 @@
 '''
 需要安裝 flask、requests
-$ pip install -U Flask requests
+$ pip install -U Flask Flask-Cors
+
+參考連結:
+[1] Flask 實現 CORS 跨域請求的方法
+ttps://medium.com/@charming_rust_oyster_221/flask-實現-cors-跨域請求的方法-c51b6e49a8b5
 '''
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, jsonify
+from flask_cors import CORS
 import requests as req
-import json, math
+import math
 
 
 
@@ -12,6 +17,8 @@ import json, math
 Flask 初始化
 '''
 app = Flask(__name__)
+app.json.ensure_ascii = False # 防止中文變成 unicode 編碼
+CORS(app) # 設定全域 CORS
 
 
 
@@ -26,15 +33,8 @@ def get_cafe_info_in_taipei():
     url = 'https://cafenomad.tw/api/v1.2/cafes/taipei'
     res = req.get(url)
 
-    # 自訂回應，同時將咖啡廳列表資訊附加在回應中
-    response = make_response(json.dumps(res.json(), ensure_ascii=False))
-
-    # 自訂回應標頭，讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
-    response.headers["Content-Type"] = "application/json"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-
-    # 回傳自訂回應
-    return response
+    # 回傳回應
+    return jsonify(res.json())
 
 # 新竹 cafe
 @app.route('/cafe_hsinchu', methods=['GET'])
@@ -44,13 +44,8 @@ def get_cafe_info_in_hsinchu():
     url = 'https://cafenomad.tw/api/v1.2/cafes/hsinchu'
     res = req.get(url)
 
-    # 自訂回應，同時將咖啡廳列表資訊附加在回應中
-    response = make_response(json.dumps(res.json(), ensure_ascii=False))
-
-    # 自訂回應標頭，讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
-    response.headers["Content-Type"] = "application/json"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
+    # 回傳回應
+    return jsonify(res.json())
 
 # 高雄 cafe
 @app.route('/cafe_kaohsiung', methods=['GET'])
@@ -60,13 +55,8 @@ def get_cafe_info_in_kaohsiung():
     url = 'https://cafenomad.tw/api/v1.2/cafes/kaohsiung'
     res = req.get(url)
 
-    # 自訂回應，同時將咖啡廳列表資訊附加在回應中
-    response = make_response(json.dumps(res.json(), ensure_ascii=False))
-
-    # 自訂回應標頭，讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
-    response.headers["Content-Type"] = "application/json"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
+    # 回傳回應
+    return jsonify(res.json())
 
 
 
@@ -84,16 +74,8 @@ def get_count_garbage_trucks_in_taipei():
     res = req.get(url)
     count = res.json()['result']['count']
 
-    '''自訂回應和標頭'''
-    # 自訂回應，同時將垃圾車點位路線資訊列表資訊附加在回應中
-    response = make_response({'count': count})
-
-    # 讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
-    response.headers["Content-Type"] = "application/json"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-
-    '''回傳自訂回應'''
-    return response
+    # 回傳回應
+    return jsonify({'count': count})
 
 # 臺北市垃圾車點位路線資訊 (分頁)
 @app.route('/some_garbage_trucks_in_taipei', methods=['GET'])
@@ -122,16 +104,8 @@ def get_some_garbage_trucks_in_taipei():
     url = f'https://data.taipei/api/v1/dataset/a6e90031-7ec4-4089-afb5-361a4efe7202?scope=resourceAquire&offset={offset}&limit={limit}'
     res = req.get(url)
 
-    '''自訂回應和標頭'''
-    # 自訂回應，同時將垃圾車點位路線資訊列表資訊附加在回應中
-    response = make_response(json.dumps(res.json()['result']['results'], ensure_ascii=False))
-
-    # 讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
-    response.headers["Content-Type"] = "application/json"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-
-    '''回傳自訂回應'''
-    return response
+    # 回傳回應
+    return jsonify(res.json()['result']['results'])
 
 # 臺北市垃圾車點位路線資訊 (全部)
 @app.route('/all_garbage_trucks_in_taipei', methods=['GET'])
@@ -156,16 +130,8 @@ def get_all_garbage_trucks_in_taipei():
         res = req.get(url)
         list_results.extend(res.json()['result']['results'])
 
-    '''自訂回應標頭'''
-    # 自訂回應，同時將垃圾車點位路線資訊列表資訊附加在回應中
-    response = make_response(json.dumps(list_results, ensure_ascii=False))
-
-    # 讓收到回應的 User Agent (例如瀏覽器、手機 APP 等) 可以知道回應相關的訊息與設定
-    response.headers["Content-Type"] = "application/json"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-
-    '''回傳自訂回應'''
-    return response
+    # 回傳回應
+    return jsonify(list_results)
 
 
 
