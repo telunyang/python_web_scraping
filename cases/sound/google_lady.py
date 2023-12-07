@@ -11,11 +11,14 @@ https://www.onlinewebtoolkit.com/url-encode-decode
 curl -X GET "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-TW&q=%E4%BD%A0%E7%9A%84%E8%87%AA%E8%A8%82%E6%96%87%E5%AD%97" -o ./test.mp3
 
 tl=zh-TW 的其它設定:
+[1] Understanding the Significance of Query Parameters in Google Translate
+https://copyprogramming.com/howto/what-is-the-meaning-of-google-translate-query-params
+[2] Google translate language codes
 https://gist.github.com/JT5D/a2fdfefa80124a06f5a9
 '''
 import subprocess
 from urllib.parse import quote
-import os, time
+import os
 
 
 '''
@@ -54,20 +57,19 @@ https://ffmpeg.org/download.html
 
 下載工具: 
 - Windows 10: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
-- MacOS: https://evermeet.cx/ffmpeg/ffmpeg-110057-g1e406692e5.zip
+- MacOS: https://evermeet.cx/ffmpeg/ffmpeg-112875-g47e214245b.zip
 
 Windows 說明:
 1. 下載 zip 檔，解壓縮到專案目錄 (python_basics) 底下。
-2. 如果解壓縮的目錄叫作「ffmpeg-6.0-essentials_build」，請改成「ffmpeg」。
+2. 如果解壓縮的目錄叫作「ffmpeg-6.1-essentials_build」，請改成「ffmpeg」。
 3. ffmpeg 資料夾裡面有個 bin 資料夾，裡面的 ffmpeg.exe 是主要的轉檔程式。
 
 MacOS 說明: 
 1. 下載 zip 檔，解壓縮後，會直接看到 ffmpeg 這個檔案。
 2. 給它可以執行的權限，例如在 Terminal 裡面對它輸入「chmod +x ffmpeg」。
-3. 如果 ffmpeg 檔案顯示成綠色，代表它可以用來當作指令來執行，是主要的轉檔程式。
 
 參考指令: 
-- Windows 10: ./ffmpeg/bin/ffmpeg.exe -i test.mp3 -filter:a "atempo=1.5" test_atempo.mp3
+- Windows 10: .\ffmpeg\bin\ffmpeg.exe -i test.mp3 -filter:a "atempo=1.5" test_atempo.mp3
 - MacOS: ./ffmpeg -i test.mp3 -filter:a "atempo=1.5" test_atempo.mp3
 '''
 cmd = [
@@ -75,7 +77,7 @@ cmd = [
     '-i',
     f'./{q}.mp3',
     '-filter:a',
-    'atempo=1.5',
+    'atempo=1.5', # 'asetrate=44100*0.4,atempo=1.5'
     f'./{q}_atempo.mp3'
 ]
 std_output = subprocess.run(cmd)
@@ -126,7 +128,7 @@ for index, q in enumerate(list_words):
         print(f'[{index}] 下載失敗')
 
     cmd = [
-        './ffmpeg/bin/ffmpeg.exe', # 左邊是 Windows 指令。MacOS: ./ffmpeg
+        './ffmpeg/bin/ffmpeg.exe',
         '-i',
         f'./mp3/{index}.mp3',
         '-filter:a',
