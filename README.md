@@ -34,6 +34,7 @@ Python 網路爬蟲講義與範例
 
 
 ## 已歸檔教學參考影片
+- [資展國際-BDSE33-Python網路爬蟲 - 12/2, 12/3, 12/9, 12/10](https://www.youtube.com/playlist?list=PLV4FeK54eNbxprT9Sn6FWlcb63u8t0HKt "資展國際-BDSE33-Python網路爬蟲")
 - [臺大計算機中心 - Python 網路爬蟲 - 2022/06/20 開班](https://www.youtube.com/playlist?list=PLV4FeK54eNbyZ_rvAAkCICYufOtuQZtTI)
 - [資展國際 - 養成班 BDSE22 - Python網路爬蟲](https://www.youtube.com/playlist?list=PLV4FeK54eNbwOKHOH4aWR95fo0cU4wH3O "Python網路爬蟲")
 - [臺大計算機中心 - Python 網路爬蟲 - 2021/10/01 開班](https://www.youtube.com/playlist?list=PLV4FeK54eNby0rK-Xpex6baRXE3DG-leg "Python網路爬蟲")
