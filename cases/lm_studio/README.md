@@ -9,7 +9,7 @@
 
 ## 套件安裝
 ```bash
-pip install openai requests
+pip install openai requests flask Flask-Cors
 ```
 
 ## 模型使用範例
@@ -20,6 +20,7 @@ pip install openai requests
     - lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf
 - 繁體中文 (Optional)
   - 對話生成
+    - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q5_K_M.gguf
     - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
 
 ## 下載模型流程
