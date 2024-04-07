@@ -42,6 +42,7 @@ Python 網路爬蟲講義與範例
 
 
 ## 延伸應用
+- [Leaflet.js - Web 互動式地圖](https://www.youtube.com/playlist?list=PLV4FeK54eNbwNaCoJomI1jhvgm-A-vOsz)
 - [GPT2-Chinese old branch 中文語言模型訓練與生成](https://youtu.be/c3fHRQonqlM)
 - [臺大計中電子報 - 第0062期‧2022-09-20 發行 - 使用PyAutoGUI開發桌面自動化程式](https://www.cc.ntu.edu.tw/chinese/epaper/home/20220920_006203.html "臺大計中電子報 - 第0062期‧2022-09-20 發行 - 使用PyAutoGUI開發桌面自動化程式")
 - [臺大計中電子報 - 第0059期‧2021.12.20 發行 - 使用GPT2-Chinese生成具有情感的中文對話文字](https://www.cc.ntu.edu.tw/chinese/epaper/0059/20211220_5908.html "臺大計中電子報 - 第0059期‧2021.12.20 發行 - 使用GPT2-Chinese生成具有情感的中文對話文字")
