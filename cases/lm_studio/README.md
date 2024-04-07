@@ -3,7 +3,7 @@
   - [首頁](https://lmstudio.ai/)
     - 請依作業系統下載適合的版本
   - [使用說明](https://lmstudio.ai/docs/welcome)
-- 下載的 LLL models 是[量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c)後的版本
+- 下載的 LLM 是 [量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c) 後的版本
 - 可以參考 [The Walking Fish的程式小站](https://the-walking-fish.com/p/lmstudio/) 有關 LM Studio 的介紹
 
 
@@ -18,7 +18,7 @@ pip install openai requests
     - TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf
   - 對話生成
     - lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf
-- 繁體中文
+- 繁體中文 (Optional)
   - 對話生成
     - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
 
