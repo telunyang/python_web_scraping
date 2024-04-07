@@ -1,9 +1,10 @@
 # lm studio
-在 localhost 安裝 large language model (LLM) 伺服器，並使用 OpenAI 的 API 來進行對話、圖片描述等應用。
-- [首頁](https://lmstudio.ai/)
+- 在 localhost 安裝 large language model (LLM) 伺服器，並使用 OpenAI 的 API 來進行對話、圖片描述等應用。
+  - [首頁](https://lmstudio.ai/)
+    - 請依作業系統下載適合的版本
   - [使用說明](https://lmstudio.ai/docs/welcome)
-
-註：下載的 LLL models 是[量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c)後的版本 
+- 下載的 LLL models 是[量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c)後的版本
+- 可以參考 [The Walking Fish的程式小站](https://the-walking-fish.com/p/lmstudio/) 有關 LM Studio 的介紹
 
 
 ## 套件安裝
@@ -12,9 +13,15 @@ pip install openai requests
 ```
 
 ## 模型使用範例
-- TheBloke/CodeLlama-7B-Instruct-GGUF
-  - 說明頁面: [https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF)
-- audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF
+- 英文
+  - 程式碼生成
+    - TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf
+  - 對話生成
+    - lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf
+      - 說明頁面: [https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF)
+- 繁體中文
+  - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
+
 
 
 ## 提示字
@@ -32,7 +39,7 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 
 
 ## 使用者提示字範例
-一般使者提示
+- 一般使用者提示
 ```
 問題：是位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後，早年為臺灣首屈一指的大型國際性飯店。目前所見的中國宮殿風格建築於1973年落成，是臺北地標之一。飯店屋顶使用歇山式。飯店的建築上採用相當多的龍形雕刻，故有人稱此飯店為「龍宮」； 除採用龍形之外，亦有石獅、梅花等中國建築常用的圖案。該建築的名稱是：(A)帝后大飯店(B)台北城大飯店(C)圓山大飯店(D)天成文旅華山町
 
@@ -44,7 +51,7 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 ![](https://i.imgur.com/bLoK8sP.png)
 
 
-使用者提示的進階用法：一種 Retrieval Augmented Generation (RAG) 的應用
+- 使用者提示的進階用法：一種 Retrieval Augmented Generation (RAG) 的應用
 ```
 背景知識如下：
 圓山大飯店，是一座位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後。酒店始建於1952年5月，主樓落成於1973年10月10日。曾為20世紀後期臺灣首屈一指的大型國際性飯店，並自啟用後曾接待過許多來臺北訪問的外國政要。當前臺北圓山大飯店已晉升為交通部觀光局評鑑之五星級飯店。
@@ -61,7 +68,7 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 
 ![](https://i.imgur.com/pl8EhvL.png)
 
-
+- 多一點背景知識的使用者提示 - 要注意支援最大序列長度 (max_seq_length) 是多少
 ```
 背景知識如下：
 林懷民（），是一名臺灣編舞家及作家，為現代舞團雲門舞集創辦人與藝術總監。林懷民為國立政治大學新聞學士、愛荷華大學藝術碩士。2006年獲選為Discovery頻道《臺灣人物誌》的6名主角之1。
