@@ -16,6 +16,7 @@ history = [
 
 # 進入對話迴圈
 while True:
+    # 透過 Chat Completions API 來取得 ai assistant 的回應
     completion = client.chat.completions.create(
         model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf",
         messages=history,
@@ -23,8 +24,10 @@ while True:
         stream=True,
     )
 
+    # 取得 ai assistant 的回應
     new_message = {"role": "assistant", "content": ""}
     
+    # 透過 stream 方式，將 ai assistant 生成的文字一個一個輸出
     for chunk in completion:
         if chunk.choices[0].delta.content:
             # 以 stream 方式，將 ai assistant 生成文字一個一個輸出的方法
@@ -36,18 +39,20 @@ while True:
     # 將 ai assistant 生成的文字加入到對話紀錄中
     history.append(new_message)
     
+    '''
     # 取消註解，來觀看對話紀錄
-    # import json
-    # gray_color = "\033[90m"
-    # reset_color = "\033[0m"
-    # print(f"{gray_color}\n{'-'*20} History dump {'-'*20}\n")
-    # print(json.dumps(history, indent=2))
-    # print(f"\n{'-'*55}\n{reset_color}")
-
+    import json
+    gray_color = "\033[90m"
+    reset_color = "\033[0m"
+    print(f"{gray_color}\n{'-'*20} History dump {'-'*20}\n")
+    print(json.dumps(history, indent=2))
+    print(f"\n{'-'*55}\n{reset_color}")
+    '''
+    
     # 換行
     print()
 
-    # 使用者輸入
+    # 使用者輸入 (請在 Terminal 中輸入文字，並按下 Enter 鍵，以繼續對話)
     history.append({"role": "user", "content": input("> ")})
 
 
