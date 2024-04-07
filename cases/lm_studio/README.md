@@ -5,6 +5,7 @@
 
 註：下載的 LLL models 是[量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c)後的版本 
 
+
 ## 套件安裝
 ```bash
 pip install openai requests
@@ -13,7 +14,7 @@ pip install openai requests
 ## 模型使用範例
 - TheBloke/CodeLlama-7B-Instruct-GGUF
   - 說明頁面: [https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF)
-- audreyt/Taiwan-LLM-13B-v2.0-chat-GGUF
+- audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF
 
 
 ## 提示字
@@ -22,10 +23,26 @@ pip install openai requests
 A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.
 ```
 
-使用者提示 (user prompt)
+使用者提示 (user prompt) 註: 使用 CodeLlama-7B-Instruct-GGUF 模型
+```bash
+請幫我撰寫一段 9x9 乘法表的程式碼，使用 python 來撰寫，只要程式碼範例就好，不用額外說明。
 ```
-請幫我撰寫一個 9 9 乘法表的程式，程式使用 python 來撰寫。
+
+![](https://i.imgur.com/bIz47ui.png)
+
+
+## 使用者提示字範例
+一般使者提示
 ```
+問題：是位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後，早年為臺灣首屈一指的大型國際性飯店。目前所見的中國宮殿風格建築於1973年落成，是臺北地標之一。飯店屋顶使用歇山式。飯店的建築上採用相當多的龍形雕刻，故有人稱此飯店為「龍宮」； 除採用龍形之外，亦有石獅、梅花等中國建築常用的圖案。該建築的名稱是：(A)帝后大飯店(B)台北城大飯店(C)圓山大飯店(D)天成文旅華山町
+
+注意：不用過多的說明，只要正確地回答 (A),(B),(C),(D) 其中一個就可以了。
+
+答案是：
+```
+
+![](https://i.imgur.com/bLoK8sP.png)
+
 
 使用者提示的進階用法：一種 Retrieval Augmented Generation (RAG) 的應用
 ```
@@ -39,12 +56,16 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 1. 答案只能是選項 (A), (B), (C), (D) 其中 1 個，必須在回答的開頭顯示答案，而且答案左邊、右邊都要有括號(Parentheses)。
 2. 回答的內容只能是一句話，不能有換行符號(\n)。
 
-答案是
+答案是：
 ```
+
+![](https://i.imgur.com/pl8EhvL.png)
+
+
 ```
 背景知識如下：
-林懷民 林懷民（），是一名臺灣編舞家及作家，為現代舞團雲門舞集創辦人與藝術總監。林懷民為國立政治大學新聞學士、愛荷華大學藝術碩士。2006年獲選為Discovery頻道《臺灣人物誌》的6名主角之1。
-雲門舞集 雲門舞集，是一個臺灣的現代舞蹈表演團體，於1973年由林懷民創辦，是臺灣的第一個現代舞職業舞團。雲門之名來自《呂氏春秋》中的一句話：「黃帝時，大容作雲門，大卷……」，也就是傳說中黃帝時代舞蹈的名稱。雲門舞集曾推出多個舞蹈作品，當中包括有薪傳，九歌，家族合唱，流浪者之歌，水月，竹夢，行草等等。
+林懷民（），是一名臺灣編舞家及作家，為現代舞團雲門舞集創辦人與藝術總監。林懷民為國立政治大學新聞學士、愛荷華大學藝術碩士。2006年獲選為Discovery頻道《臺灣人物誌》的6名主角之1。
+雲門舞集，是一個臺灣的現代舞蹈表演團體，於1973年由林懷民創辦，是臺灣的第一個現代舞職業舞團。雲門之名來自《呂氏春秋》中的一句話：「黃帝時，大容作雲門，大卷……」，也就是傳說中黃帝時代舞蹈的名稱。雲門舞集曾推出多個舞蹈作品，當中包括有薪傳，九歌，家族合唱，流浪者之歌，水月，竹夢，行草等等。
 
 問題：臺灣第一個現代舞劇團「雲門舞集」的創辦人與藝術總監。2006年獲選為Discovery頻道《台灣人物誌》的6名主角之1。他的名字是：(A)林懷民(B)羅文裕(C)李國修(D)林怡君
 
@@ -53,8 +74,11 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 1. 答案只能是選項 (A), (B), (C), (D) 其中 1 個，必須在回答的開頭顯示答案，而且答案左邊、右邊都要有括號(Parentheses)。
 2. 回答的內容只能是一句話，不能有換行符號(\n)。
 
-答案是
+答案是：
 ```
+
+![](https://i.imgur.com/uCsXoCP.png)
+
 
 ## 範例程式
 **使用 CURL 來對 local server 進行聊天對話**
