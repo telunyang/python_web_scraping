@@ -5,6 +5,9 @@
   - [使用說明](https://lmstudio.ai/docs/welcome)
 - 下載的 LLM 是 [量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c) 後的版本
 - 可以參考 [The Walking Fish的程式小站](https://the-walking-fish.com/p/lmstudio/) 有關 LM Studio 的介紹
+- index.html 和 web_api.py 是測試文字串流效果的範例，參考連結如下：
+  - [YouTube video](https://www.youtube.com/watch?v=z6iYcqNECwA)
+  - [Source code](https://github.com/PrettyPrinted/youtube_video_code/tree/master/2024/03/28/How%20to%20Stream%20OpenAI%20API%20Responses%20in%20a%20Flask%20App/flask_openai_streaming)
 
 
 ## 套件安裝
