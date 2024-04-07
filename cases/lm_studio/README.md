@@ -18,10 +18,9 @@ pip install openai requests
     - TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf
   - 對話生成
     - lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf
-      - 說明頁面: [https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF](https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF)
 - 繁體中文
-  - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
-
+  - 對話生成
+    - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
 
 
 ## 提示字
@@ -34,7 +33,6 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 ```bash
 請幫我撰寫一段 9x9 乘法表的程式碼，使用 python 來撰寫，只要程式碼範例就好，不用額外說明。
 ```
-
 ![](https://i.imgur.com/bIz47ui.png)
 
 
@@ -47,7 +45,6 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 
 答案是：
 ```
-
 ![](https://i.imgur.com/bLoK8sP.png)
 
 
@@ -65,8 +62,8 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 
 答案是：
 ```
-
 ![](https://i.imgur.com/pl8EhvL.png)
+
 
 - 多一點背景知識的使用者提示 - 要注意支援最大序列長度 (max_seq_length) 是多少
 ```
@@ -83,7 +80,6 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 
 答案是：
 ```
-
 ![](https://i.imgur.com/uCsXoCP.png)
 
 
