@@ -22,6 +22,20 @@ pip install openai requests
   - 對話生成
     - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
 
+## 下載模型流程
+- 1. 選擇模型，最後按下 Download
+![](https://i.imgur.com/PlDyc8s.png)
+- 2. 觀看模型下載進度
+![](https://i.imgur.com/g9QEea6.png)
+- 3. 模型驗證中
+![](https://i.imgur.com/xN5yyyI.png)
+- 4. 驗證完成
+![](https://i.imgur.com/vqBxafd.png)
+- 5. 與 AI 對話 (需要先選擇模型，讀取需要一段時間)
+![](https://i.imgur.com/fWTnQxz.png)
+
+## 在 localhost 建立 server
+![](https://i.imgur.com/KAzGvMN.png)
 
 ## 提示字
 系統提示 (system prompt)
