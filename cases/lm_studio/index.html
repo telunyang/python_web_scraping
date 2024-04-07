@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>測試 LLM 串流傳輸效果</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            display: inline;
+            max-width: 50%;
+        }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <!-- 輸入範例: 請以 python 撰寫 9x9 乘法表，並以 markdown 格式輸出，不要額外的說明，只要程式碼就好。 -->
+        <textarea id="txt" placeholder="請輸入您的訊息" cols="150" rows="10"></textarea>
+        <button type="submit" id="smb">送出</button>
+    </form>
+    <pre id="content"></pre>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // 取得網頁元素
+        const content = document.getElementById('content');
+        const submit_btn = document.querySelector('button#smb');
+        const txt = document.getElementById('txt');
+
+        // 當表單送出時，觸發事件
+        submit_btn.addEventListener("click", async (e) => {
+            // 防止表單預設送出行為
+            e.preventDefault();
+
+            // 發送 POST 請求
+            const response = await fetch("http://127.0.0.1:5000/chat", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"}, //透過 request headers，告訴後端我們傳送的資料類型為 JSON
+                body: JSON.stringify({
+                    session_id: "sess_55663312", //這裡可以自訂，包括數字也可以亂寫，sess_ 開頭代表這是 session id，但不一定要這樣命名
+                    message: txt.value //使用者輸入的訊息
+                })
+            });
+
+            // 讀取 response body，getReader() 會回傳一個 ReadableStreamDefaultReader 物件
+            const reader = response.body.getReader();
+
+            // output 用來儲存 response body 的內容
+            let output = "";
+
+            // 透過 while 迴圈，持續讀取 response body 的內容
+            while (true) {
+                // reader.read() 會回傳一個 promise，當讀取完成時，會回傳一個物件，包含 done 和 value 兩個屬性
+                const { done, value } = await reader.read();
+
+                // 將讀取到的 value 轉換成文字，並加到 output 變數中
+                output += new TextDecoder().decode(value);
+
+                // 將 response body 的內容轉換成 HTML，並顯示在網頁上
+                content.innerHTML = marked.parse(output);
+
+                // 如果讀取完成，則跳出迴圈
+                if (done) {
+                    // 透過 return 來結束迴圈。這是一種特殊的 return，可以結束 async function 的執行
+                    return;
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
