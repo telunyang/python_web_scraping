@@ -232,6 +232,6 @@ for chunk in completion:
 ```
 
 ## 替選方案
-ollama
-- [首頁](https://github.com/ollama/ollama)
-  - [使用說明](https://ollama.ai/docs/welcome)
+- [GPT4All](https://gpt4all.io/index.html)
+- [ollama](https://github.com/ollama/ollama)
+- [llamafile](https://github.com/Mozilla-Ocho/llamafile)
