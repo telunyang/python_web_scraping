@@ -38,13 +38,6 @@ pip install openai requests flask
 - 與 AI 對話 (需要先選擇模型，讀取需要一段時間)
 ![](https://i.imgur.com/fWTnQxz.png)
 
-## 在 localhost 建立 server
-- 開啟 Local Inference Server (它會額外提供 Web API 服務)
-![](https://i.imgur.com/KAzGvMN.png)
-- 執行 web_api.py: `python web_api.py` (它會串接 Local Inference Server 的 Web API)
-- 進入 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
-- 互動後，檢視 Local Inference Server 與瀏覽器頁面
-![](https://i.imgur.com/257lhXU.png)
 
 ## 提示字
 系統提示 (system prompt)
@@ -104,7 +97,16 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 答案是：
 ```
 ![](https://i.imgur.com/uCsXoCP.png)
- 
+
+
+## 在 localhost 建立 server
+- 開啟 Local Inference Server (它會額外提供 Web API 服務)
+![](https://i.imgur.com/KAzGvMN.png)
+- 執行 web_api.py: `python web_api.py` (它會串接 Local Inference Server 的 Web API)
+- 進入 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+- 互動後，檢視 Local Inference Server 與瀏覽器頁面
+![](https://i.imgur.com/257lhXU.png)
+
 
 ## 範例程式
 **使用 CURL 來對 local server 進行聊天對話**
