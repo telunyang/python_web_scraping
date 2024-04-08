@@ -3,8 +3,12 @@
   - [首頁](https://lmstudio.ai/)
     - 請依作業系統下載適合的版本
   - [使用說明](https://lmstudio.ai/docs/welcome)
-- 下載的 LLM 是 [量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c) 後的版本
 - 可以參考 [The Walking Fish的程式小站](https://the-walking-fish.com/p/lmstudio/) 有關 LM Studio 的介紹
+- 下載的 LLM 是 [量化](https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c) 後的版本
+  - GGUF (GPT-Generated Unified Format) 的相關說明：
+    - [GGUF](https://huggingface.co/docs/hub/en/gguf)
+    - [TheBloke/Llama-2-13B-GGML](https://huggingface.co/TheBloke/Llama-2-13B-GGML)
+	- [[Day 15] - 鋼鐵草泥馬 🦙 LLM chatbot 🤖 (6/10)｜GGML 量化 LLaMa](https://ithelp.ithome.com.tw/articles/10331431)
 - index.html 和 web_api.py 是測試文字串流效果的範例，參考連結如下：
   - [YouTube video](https://www.youtube.com/watch?v=z6iYcqNECwA)
   - [Source code](https://github.com/PrettyPrinted/youtube_video_code/tree/master/2024/03/28/How%20to%20Stream%20OpenAI%20API%20Responses%20in%20a%20Flask%20App/flask_openai_streaming)
