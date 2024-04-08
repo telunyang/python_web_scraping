@@ -12,7 +12,7 @@
 
 ## 套件安裝
 ```bash
-pip install openai requests flask Flask-Cors
+pip install openai requests flask
 ```
 
 ## 模型使用範例
@@ -27,19 +27,24 @@ pip install openai requests flask Flask-Cors
     - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
 
 ## 下載模型流程
-- 1. 選擇模型，最後按下 Download
+- 選擇模型，最後按下 Download
 ![](https://i.imgur.com/PlDyc8s.png)
-- 2. 觀看模型下載進度
+- 觀看模型下載進度
 ![](https://i.imgur.com/g9QEea6.png)
-- 3. 模型驗證中
+- 模型驗證中
 ![](https://i.imgur.com/xN5yyyI.png)
-- 4. 驗證完成
+- 驗證完成
 ![](https://i.imgur.com/vqBxafd.png)
-- 5. 與 AI 對話 (需要先選擇模型，讀取需要一段時間)
+- 與 AI 對話 (需要先選擇模型，讀取需要一段時間)
 ![](https://i.imgur.com/fWTnQxz.png)
 
 ## 在 localhost 建立 server
+- 開啟 Local Inference Server (它會額外提供 Web API 服務)
 ![](https://i.imgur.com/KAzGvMN.png)
+- 執行 web_api.py: `python web_api.py` (它會串接 Local Inference Server 的 Web API)
+- 進入 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+- 互動後，檢視 Local Inference Server 與瀏覽器頁面
+![](https://i.imgur.com/257lhXU.png)
 
 ## 提示字
 系統提示 (system prompt)
@@ -83,7 +88,7 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 ![](https://i.imgur.com/pl8EhvL.png)
 
 
-- 多一點背景知識的使用者提示 - 要注意支援最大序列長度 (max_seq_length) 是多少
+- 多一點背景知識的使用者提示 - 要注意支援 最大序列長度 (max_seq_length) 或 上下文長度 (context length) 是多少
 ```
 背景知識如下：
 林懷民（），是一名臺灣編舞家及作家，為現代舞團雲門舞集創辦人與藝術總監。林懷民為國立政治大學新聞學士、愛荷華大學藝術碩士。2006年獲選為Discovery頻道《臺灣人物誌》的6名主角之1。
@@ -99,7 +104,7 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 答案是：
 ```
 ![](https://i.imgur.com/uCsXoCP.png)
-
+ 
 
 ## 範例程式
 **使用 CURL 來對 local server 進行聊天對話**
