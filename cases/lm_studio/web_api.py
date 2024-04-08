@@ -1,5 +1,4 @@
-from flask import Flask, request
-from flask_cors import CORS
+from flask import Flask, request, render_template
 from openai import OpenAI
 
 '''
@@ -7,18 +6,27 @@ Flask 初始化
 '''
 app = Flask(__name__)
 app.json.ensure_ascii = False # 防止中文變成 unicode 編碼
-CORS(app) # 設定全域 CORS
 
 '''
 OpenAI 設定初始化
 '''
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
-
+'''
+變數初始化
+'''
 # 使用字典來保存每個會話的對話歷史
 sessions_history = {}
 
-# 自訂路由
+'''
+自訂 router
+'''
+# 首頁 (透過 render_template 函式，將 templates/index.html 檔案回傳給前端)
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+# 取得 ai assistant 的回應
 @app.route("/chat", methods=["POST"])
 def chat():
     # 取得前端傳來的 JSON 格式資料
