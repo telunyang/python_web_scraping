@@ -38,10 +38,9 @@ pip install openai requests flask
 - 與 AI 對話 (需要先選擇模型，讀取需要一段時間)
 ![](https://i.imgur.com/fWTnQxz.png)
 
-
 ## 提示字
 系統提示 (system prompt)
-```
+```log
 A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions.
 ```
 
@@ -50,7 +49,6 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 請幫我撰寫一段 9x9 乘法表的程式碼，使用 python 來撰寫，只要程式碼範例就好，不用額外說明。
 ```
 ![](https://i.imgur.com/bIz47ui.png)
-
 
 ## 使用者提示字範例
 - 一般使用者提示
@@ -64,8 +62,8 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 ![](https://i.imgur.com/bLoK8sP.png)
 
 
-- 使用者提示的進階用法：一種 Retrieval Augmented Generation (RAG) 的應用
-```
+- 一般使用者提示：加入問題相關的背景知識，幫助 LLM 回答問題，例如透過網路爬蟲、網頁搜尋、資料庫查詢等方式取得背景知識
+```log
 背景知識如下：
 圓山大飯店，是一座位於臺灣臺北市中山區劍潭山的旅館，成立於第二次世界大戰後。酒店始建於1952年5月，主樓落成於1973年10月10日。曾為20世紀後期臺灣首屈一指的大型國際性飯店，並自啟用後曾接待過許多來臺北訪問的外國政要。當前臺北圓山大飯店已晉升為交通部觀光局評鑑之五星級飯店。
 
@@ -81,8 +79,8 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 ![](https://i.imgur.com/pl8EhvL.png)
 
 
-- 多一點背景知識的使用者提示 - 要注意支援 最大序列長度 (max_seq_length) 或 上下文長度 (context length) 是多少
-```
+- 一般使用者提示：多一點背景知識的使用者提示 - 要注意支援 最大序列長度 (max_seq_length) 或 上下文長度 (context length) 是多少
+```log
 背景知識如下：
 林懷民（），是一名臺灣編舞家及作家，為現代舞團雲門舞集創辦人與藝術總監。林懷民為國立政治大學新聞學士、愛荷華大學藝術碩士。2006年獲選為Discovery頻道《臺灣人物誌》的6名主角之1。
 雲門舞集，是一個臺灣的現代舞蹈表演團體，於1973年由林懷民創辦，是臺灣的第一個現代舞職業舞團。雲門之名來自《呂氏春秋》中的一句話：「黃帝時，大容作雲門，大卷……」，也就是傳說中黃帝時代舞蹈的名稱。雲門舞集曾推出多個舞蹈作品，當中包括有薪傳，九歌，家族合唱，流浪者之歌，水月，竹夢，行草等等。
