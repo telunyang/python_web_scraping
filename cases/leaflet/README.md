@@ -58,13 +58,18 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
 </script>
 ```
 
-## 2. 範例資料來源
+### 2. 需要安裝 flask、requests
+```bash
+$ pip install -U Flask requests
+```
+
+## 3. 範例資料來源
 - [Cafe Nomad：咖啡廳遊牧民族 ](https://cafenomad.tw/)
   - [開發人員 API 文件](https://cafenomad.tw/developers)
     - [API v1.2](https://cafenomad.tw/developers/docs/v1.2)：以 taipei 的資料為例 -  [預覽 JSON](https://cafenomad.tw/api/v1.2/cafes/taipei)
 
 
-## 3. 範例程式
+## 4. 範例程式
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +78,9 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <!-- leaflet css 設定 -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     
     <!-- 自訂 css -->
     <style>
@@ -107,7 +113,7 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
     </table>
 
     <!-- leaflet JS cdn -->
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <!-- 自訂 js -->
     <script>
@@ -176,8 +182,7 @@ L.marker([25.0339145, 121.5412233]).addTo(map)
 
                 //建立 markers
                 let marker = L.marker([o['latitude'], o['longitude']])
-                .bindPopup(`${o['name']}<br><a href="${o['url']}" target="_blank">連結</a>`)
-                .openPopup();
+                .bindPopup(`${o['name']}<br><a href="${o['url']}" target="_blank">連結</a>`);
 
                 //自訂事件
                 marker.addEventListener('click', function(event){

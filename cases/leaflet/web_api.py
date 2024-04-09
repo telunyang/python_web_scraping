@@ -1,25 +1,24 @@
 '''
 需要安裝 flask、requests
-$ pip install -U Flask Flask-Cors
-
-參考連結:
-[1] Flask 實現 CORS 跨域請求的方法
-ttps://medium.com/@charming_rust_oyster_221/flask-實現-cors-跨域請求的方法-c51b6e49a8b5
+$ pip install -U Flask requests
 '''
-from flask import Flask, make_response, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify, render_template
 import requests as req
 import math
-
-
 
 '''
 Flask 初始化
 '''
 app = Flask(__name__)
 app.json.ensure_ascii = False # 防止中文變成 unicode 編碼
-CORS(app) # 設定全域 CORS
 
+
+'''
+首頁 (透過 render_template 函式，將 templates/index.html 檔案回傳給前端)
+'''
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index_cafe.html')
 
 
 '''
@@ -146,7 +145,7 @@ if __name__ == '__main__':
 
         # 127.0.0.1 或 localhost 限定本機使用服務，
         # 0.0.0.0 代表所有知道主機實際 IP 的人都能存取 
-        host='0.0.0.0',
+        host='127.0.0.1',
 
         # 網址或 IP 後面附加的 Port 號，代表服務由該 Port 號提供
         port=5000 
