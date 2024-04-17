@@ -249,7 +249,7 @@ for chunk in completion:
     print(chunk.choices[0].delta.content, end="", flush=True)
 ```
 
-## 建立句向量 (sentence embeddings)
+**建立句向量 (sentence embeddings)**
 ```python
 # Make sure to `pip install openai` first
 from openai import OpenAI
