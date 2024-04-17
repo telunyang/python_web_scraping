@@ -12,8 +12,15 @@ client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 completion = client.chat.completions.create(
   model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf",
   messages=[
-    {"role": "system", "content": "Always answer in rhymes."},
-    {"role": "user", "content": "Introduce yourself."}
+    {"role": "system", "content": "Always answer in rhymes."}, # 設定對話的風格或是要求 AI 扮演某些角色
+    {"role": "user", "content": "Introduce yourself."},
+    # ...
+    # 想要一直聊下去，可以繼續加入對話：
+    # {"role": "assistant", "content": ""},
+    # {"role": "user", "content": ""},
+    # {"role": "assistant", "content": ""},
+    # {"role": "user", "content": ""},
+    # ...
   ],
   temperature=0.7
 )

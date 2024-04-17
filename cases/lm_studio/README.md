@@ -20,15 +20,23 @@ pip install openai requests flask
 ```
 
 ## 模型使用範例
+- 網路使用者建議使用 Q5_K_M 或 Q4_K_M
 - 英文
   - 程式碼生成
-    - TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf
+    - TheBloke/CodeLlama-7B-Instruct-GGUF/
   - 對話生成
-    - lmstudio-ai/gemma-2b-it-GGUF/gemma-2b-it-q8_0.gguf
-- 繁體中文 (Optional)
+    - gemma
+      - 2B
+        - lmstudio-ai/gemma-**2b**-it-GGUF
+        - lmstudio-community/gemma-**1.1**-**2b**-it-GGUF
+      - 7B
+        - mlabonne/gemma-**7b**-it-GGUF
+        - bartowski/gemma-**1.1**-**7b**-it-GGUF
+  - 圖片描述
+    - PsiPi/NousResearch_Nous-Hermes-2-Vision-GGUF
+- 繁體中文
   - 對話生成
-    - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q5_K_M.gguf
-    - audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF/Taiwan-LLM-7B-v2.0.1-chat-Q8_0.gguf
+    - ZoneTwelve/TAIDE-LX-**7B**-Chat-GGUF
 
 ## 下載模型流程
 - 選擇模型，最後按下 Download
@@ -102,6 +110,7 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 
 
 ## 在 localhost 建立 server
+- [官方說明文件](https://lmstudio.ai/docs/local-server)
 - 開啟 Local Inference Server (它會額外提供 Web API 服務)
 ![](https://i.imgur.com/KAzGvMN.png)
 - 執行 web_api.py: `python web_api.py` (它會串接 Local Inference Server 的 Web API)
@@ -212,7 +221,7 @@ except:
   exit()
 
 completion = client.chat.completions.create(
-  model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf",
+  model="PsiPi/NousResearch_Nous-Hermes-2-Vision-GGUF/NousResearch_Nous-Hermes-2-Vision-GGUF_Q5_K_M.gguf",
   messages=[
     {
       "role": "system",
@@ -240,7 +249,19 @@ for chunk in completion:
     print(chunk.choices[0].delta.content, end="", flush=True)
 ```
 
+## 建立句向量 (sentence embeddings)
+```python
+# Make sure to `pip install openai` first
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+
+def get_embedding(text, model="nomic-ai/nomic-embed-text-v1.5-GGUF"):
+   text = text.replace("\n", " ")
+   return client.embeddings.create(input = [text], model=model).data[0].embedding
+
+print(get_embedding("Once upon a time, there was a cat."))
+```
 ## 替選方案
-- [GPT4All](https://gpt4all.io/index.html)
 - [ollama](https://github.com/ollama/ollama)
+- [GPT4All](https://gpt4all.io/index.html)
 - [llamafile](https://github.com/Mozilla-Ocho/llamafile)

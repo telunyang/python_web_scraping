@@ -20,7 +20,7 @@ except:
 
 # 生成文字
 completion = client.chat.completions.create(
-  model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q8_0.gguf",
+  model="PsiPi/NousResearch_Nous-Hermes-2-Vision-GGUF/NousResearch_Nous-Hermes-2-Vision-GGUF_Q5_K_M.ggu",
   messages=[
     {
       "role": "system",
