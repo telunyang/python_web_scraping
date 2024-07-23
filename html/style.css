@@ -1,0 +1,215 @@
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    background-color: #000000;
+}
+header {
+    background-color:rgba(35,28,26,0.8);
+    height:80px;
+    width:100%;
+    position:fixed;    
+}
+h1 {
+    color:white;
+    position:absolute;
+    left:120px;
+    top:0;
+    line-height: 80px;
+    background-image:url(images/logo.svg) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:210px;
+    text-indent: -9999px; 
+}
+header ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:80px;
+}
+header li {
+    display:inline;
+    margin-right:4vw;    
+}
+header a {
+    color:white;
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+}
+.news {
+    background-color: antiquewhite;
+    color:white;
+    height:95vh;
+    background-image: url("images/banner.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+} 
+.news h2 {
+    font-size:60px;
+    margin-top:60px;
+} 
+.news p {
+    color:#FEF7E6;
+    font-size:18px;
+    margin:25px 0;
+}
+.news a {
+    color:white;
+    text-decoration: none;
+    border: 1px solid #ACACAC;
+    padding:10px 20px;
+    border-radius: 5px;
+}
+.slogan {
+    background-color:#485652;
+    color:white;
+    height:250px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.8em;  
+}
+.shop {
+    display:flex;
+}
+.shop img {
+    width:50%;
+}
+.info {
+    width:50%;
+    background-color: white;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.info h2 {
+    font-size:40px;
+    margin-bottom: 30px;
+}
+.info p {
+    text-align: center;
+    line-height: 2em;
+}
+.product {
+    display:flex;
+    background-color: #ede9db;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 180px 80px;
+}
+.product div {
+    width:300px;
+    text-align:center;
+}
+.product img {
+    width:100%;
+    border-radius: 10px;;
+}
+.product h3 {
+    font-size: 20px;    
+    margin: 20px 0;
+}
+.product p {
+    font-size:14px;
+    line-height: 1.6em;
+}
+.newsletter {
+    background-color:#485652;
+    color:white;
+    padding:60px 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.newsletter p {
+    margin-bottom: 20px;
+}
+.newsletter input, .newsletter button {
+    background-color: transparent;
+    color:white;
+    border: 1px solid #949d9a; 
+    padding: 10px; 
+    border-radius: 5px;;
+}
+.newsletter input {
+    width:200px;
+    margin-right: 15px;;
+}
+.newsletter button {
+    width:80px;
+    cursor:pointer;
+}
+input::placeholder {
+    color:#DDDDDD;
+}
+input:focus {
+    outline: none; /* 移除焦點效果 */
+    border-color:#E0E9A3; /* 焦點時的邊框顏色 */
+}
+footer {
+    background-color:#000000;
+    color:#B7B7B7;
+    height:60px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+.menu {
+    display:none;
+}
+/* 響應式設計語法 */
+@media screen and (max-width: 768px) {
+header ul {
+    display:none;
+}
+header h1 {
+    left:50%;
+    transform: translateX(-50%);
+}
+.news h2 {
+    font-size:40px;
+}
+.menu {
+    display:block;
+    background-color: transparent;
+    color:white;
+    font-size: 35px;
+    position:absolute;
+    top:15px;
+    left:20px;
+    border:none;
+    cursor: pointer;
+}
+.shop {
+    flex-direction: column;
+}
+.shop img {
+    width:100%;
+}
+.info {
+    width:100%;
+    padding:40px 0;
+}
+.info h2 {
+    font-size:30px;
+}
+.product {
+    flex-direction: column;
+    padding: 60px 0;
+}
+.product div {
+    margin-bottom: 30px;
+}
+}
