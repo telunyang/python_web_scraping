@@ -28,7 +28,7 @@ seed = 42
 image = pipe(
     prompt,
     output_type="pil",
-    num_inference_steps=4, #use a larger number if you are using [dev]
+    num_inference_steps=4, # use a larger number if you are using [dev]
     generator=torch.Generator("cpu").manual_seed(seed)
 ).images[0]
 image.save("./flux-schnell.png")
