@@ -37,7 +37,6 @@
   - 按下選單上的 `Model` 連結
   - 選擇 `BASE MODEL` (其它的也可以)
   - 在顯示的列表中，選擇圖卡左上方有寫 `Checkpoint` 字眼，例如 [Speciosa Realistica](https://civitai.com/models/488361/speciosa-realistica)
-    - 設定細節，
   - 在頁面右側，有個 `Download (6.46 GB)`，按下即可下載 `safetensors` 檔案
   - 將 `safetensors` 檔案，放到 `ComfyUI_windows_portable\ComfyUI\models\checkpoints` 當中
   - 刷新 ComfyUI 畫面，就可以在 `Load Checkpoint` 底下的 `ckpt_name` 選單中看到新的模型了
