@@ -1,31 +1,67 @@
 # python_web_scraping
-Python 網路爬蟲講義與範例
+Python 網路爬蟲講義與範例程式碼
 
-
-## 授課單位
-- 聯成電腦
-- 資展國際 (前身為 資策會數位教育研究所數位人才培育中心)
-- 國立臺灣大學計算機及資訊網路中心
-
-
-## 關於作者
-- LinkedIn [連結](https://www.linkedin.com/in/telunyang/)
-- Instagram [連結](https://www.instagram.com/darreninfo.cc/)
-- Facebook [連結](https://www.facebook.com/profile.php?id=61551064765585)
-
-
-## 提問方式
+## 提問
 - 通則
   - 「課程期間」或「結業前」可提問、討論，要把多餘時間和資源，留給當前上課的學員。
 - 寫信
-	- E-mail: darren@darreninfo.cc
-	- 信件標題寫上你的**班別和姓名**，或是在哪裡參與我的課程。
+	- E-mail: `darren@darreninfo.cc`
+	- 信件標題寫上你的**班別和姓名**，或是在哪裡參與我的課程，例如 `[資展 BDSEXX] 網路爬蟲問題 - 楊德倫`
 	- 提問的內容要與本專案有關，**其它課程的部分，去請益原本授課的老師**。
 	- **不要把程式碼寄給我**，可能沒時間看，討論儘量以解決問題的方向為主。
 	- 不符合以上幾點，將**直接刪除**，敬請見諒。
 - 社群
   - 可以在 Instagram 或 LinkedIn 加我好友，然後透過傳訊來討論。
   - 記得跟我說你是哪一班，路人我就只好略過，只把時間留給學生。
+
+
+## 作業
+- 僅限授課學員，其他人請勿將結果寄來，一律刪除。
+- 使用 `requests` 和 `BeautifulSoup`，或是 `selenium` 來爬取網站資料。
+  - [Project Gutenberg](https://www.gutenberg.org/)
+    - 爬取[中文](https://www.gutenberg.org/browse/languages/zh)書籍資料 (注意: 只要取得中文字，不要英文。)
+      - 約 507 本 (可能會動態增減) (可使用選擇器 `li.pgdbetext > a[href]` 來檢視)
+      - 取得中文字的正規表示式: [正則表達式-全型英數中文字、常用符號unicode對照表](https://blog.typeart.cc/正則表達式-全型英數中文字、常用符號unicode對照表/)
+    - `90` 分條件
+      - 新增 `project_gutenberg` 資料夾
+      - 將每一本書的中文內容存入 txt 檔，txt 的檔名是超連結名稱，例如 `豆棚閒話.txt`。
+      - 每一個 txt 都會被存在 `project_gutenberg` 資料夾內。
+      - 至少要有 `450` 本，少 1 本扣 1 分。
+      - `錄製`執行過程，並提供`影片連結`，可以放在 `YouTube` 或是 `Google Drive`。
+      - 不用給我程式碼。
+    - `100` 分條件
+      - 使用 `GitHub` 平台來提交作業，並且將 `github repo` 連結寄給我。
+      - `repository` 裡面要有 `project_gutenberg` 資料夾，還有你的 `.py` 或 `.ipynb` 檔案，以及 `README.md`。
+        ```
+        project_gutenberg/
+        project_gutenberg.ipynb
+        README.md
+        ```
+      - `README.md` 要有說明 (用 `.py` 執行要額外說明執行指令或方法)，例如:
+        ```markdown
+        # Project Gutenberg
+        爬取中文書籍，共 xxx 本。
+
+        ## 安裝套件
+        requests
+        beautifulsoup4
+        selenium
+        ...
+        ...
+
+        ## 成果
+        ![](你的圖片連結)
+        ...
+        [影片名稱或其它標題](你的影片連結)
+        ...
+
+        ## 其它標題
+        ...
+        ...
+        ```
+    - 沒交就一律 `60` 分。
+- 繳交時間
+  - 原則上 2 週內，準確時間上課說明。
 
 
 ## CSS 選擇器練習
