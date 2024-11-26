@@ -29,7 +29,7 @@ Python 網路爬蟲講義與範例程式碼
       - 至少要有 `450` 本，少 1 本扣 1 分。
       - `錄製`執行過程，並提供`影片連結`，可以放在 `YouTube` 或是 `Google Drive`。
       - 不用給我程式碼。
-    - `100` 分條件
+    - `100` 分條件 (基於 `90` 分條件)
       - 使用 `GitHub` 平台來提交作業，並且將 `github repo` 連結寄給我。
       - `repository` 裡面要有 `project_gutenberg` 資料夾，還有你的 `.py` 或 `.ipynb` 檔案，以及 `README.md`。
         ```
