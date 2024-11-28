@@ -20,21 +20,22 @@ Python 網路爬蟲講義與範例程式碼
 - 使用 `requests` 和 `BeautifulSoup`，或是 `selenium` 來爬取網站資料。
   - [Project Gutenberg](https://www.gutenberg.org/)
     - 爬取[中文](https://www.gutenberg.org/browse/languages/zh)書籍資料 (注意: 只要取得中文字，不要英文。)
-      - 約 507 本 (可能會動態增減) (可使用選擇器 `li.pgdbetext > a[href]` 來檢視)
+      - 可使用選擇器 `li.pgdbetext > a[href]` 來檢視相關連結數量。
       - 取得中文字的正規表示式: [正則表達式-全型英數中文字、常用符號unicode對照表](https://blog.typeart.cc/正則表達式-全型英數中文字、常用符號unicode對照表/)
-    - `90` 分條件
+    - `80` 分條件
       - 新增 `project_gutenberg` 資料夾
       - 將每一本書的中文內容存入 txt 檔，txt 的檔名是超連結名稱，例如 `豆棚閒話.txt`。
       - 每一個 txt 都會被存在 `project_gutenberg` 資料夾內。
-      - 至少要有 `450` 本，少 1 本扣 1 分。
+      - 至少要有 `200` 本，少 1 本扣 1 分。
       - `錄製`執行過程，並提供`影片連結`，可以放在 `YouTube` 或是 `Google Drive`。
       - 不用給我程式碼。
-    - `100` 分條件 (基於 `90` 分條件)
+	  - 參考影片: [古騰堡計劃（Project Gutenberg）中文電子書爬取](https://www.youtube.com/watch?v=gKDBiVvzMfk)
+    - `100` 分條件 (基於 `80` 分條件)
       - 使用 `GitHub` 平台來提交作業，並且將 `github repo` 連結寄給我。
-      - `repository` 裡面要有 `project_gutenberg` 資料夾，還有你的 `.py` 或 `.ipynb` 檔案，以及 `README.md`。
+      - `repository` 裡面至少要有 `project_gutenberg` 資料夾，還有你的 `.py` 或 `.ipynb` 檔案，以及 `README.md`。
         ```
         project_gutenberg/
-        project_gutenberg.ipynb
+        project_gutenberg.ipynb (或 .py)
         README.md
         ```
       - `README.md` 要有說明 (用 `.py` 執行要額外說明執行指令或方法)，例如:
@@ -59,6 +60,7 @@ Python 網路爬蟲講義與範例程式碼
         ...
         ...
         ```
+	  - 也可以參考: [FaceBook FanPage Scraper with selenium](https://github.com/nana89823/facebook_scraper)
     - 沒交：`0` 分。
 - 繳交時間
   - 原則上 2 週內，準確時間上課說明。
