@@ -32,6 +32,7 @@ Python 網路爬蟲講義與範例程式碼
 	  - 參考影片: [古騰堡計劃（Project Gutenberg）中文電子書爬取](https://www.youtube.com/watch?v=gKDBiVvzMfk)
     - `100` 分條件 (基於 `80` 分條件)
       - 使用 `GitHub` 平台來提交作業，並且將 `github repo` 連結寄給我。
+	  - Git 與 GitHub 使用教學: [程式與網頁開發者必備技能！Git 和 GitHub 零基礎快速上手，輕鬆掌握版本控制的要訣！](https://www.youtube.com/watch?v=FKXRiAiQFiY)
       - `repository` 裡面至少要有 `project_gutenberg` 資料夾，還有你的 `.py` 或 `.ipynb` 檔案，以及 `README.md`。
         ```
         project_gutenberg/
@@ -44,14 +45,15 @@ Python 網路爬蟲講義與範例程式碼
         爬取中文書籍，共 xxx 本。
 
         ## 安裝套件
-        requests
-        beautifulsoup4
-        selenium
+        - requests (版本號)
+        - beautifulsoup4 (版本號)
+        - selenium (版本號)
         ...
+		(版本號可用 pip list，或是 conda list 來檢視)
         ...
 
         ## 成果
-        ![](你的圖片連結)
+        ![](執行過程的擷圖或說明圖片)
         ...
         [影片名稱或其它標題](你的影片連結)
         ...
@@ -60,10 +62,10 @@ Python 網路爬蟲講義與範例程式碼
         ...
         ...
         ```
-	  - 也可以參考: [FaceBook FanPage Scraper with selenium](https://github.com/nana89823/facebook_scraper)
+	  - 可以參考以前學長的 README 撰寫方式: [FaceBook FanPage Scraper with selenium](https://github.com/nana89823/facebook_scraper)
     - 沒交：`0` 分。
 - 繳交時間
-  - 原則上 2 週內，準確時間上課說明。
+  - 原則上最後一堂課結束後 2 週內，準確時間上課說明。
 
 
 ## CSS 選擇器練習
