@@ -1,22 +1,20 @@
 # python_web_scraping
 Python 網路爬蟲講義與範例程式碼
 
+
 ## 提問
 - 通則
-  - 「課程期間」或「結業前」可提問、討論，要把多餘時間和資源，留給當前上課的學員。
+  - 「結業前」可提問、討論，要把多餘時間和資源，留給當前上課的學員。
 - 寫信
 	- E-mail: `darren@darreninfo.cc`
 	- 信件標題寫上你的**班別和姓名**，或是在哪裡參與我的課程，例如 `[資展 BDSEXX] 網路爬蟲問題 - 楊德倫`
 	- 提問的內容要與本專案有關，**其它課程的部分，去請益原本授課的老師**。
 	- **不要把程式碼寄給我**，可能沒時間看，討論儘量以解決問題的方向為主。
 	- 不符合以上幾點，將**直接刪除**，敬請見諒。
-- 社群
-  - 可以在 Instagram 或 LinkedIn 加我好友，然後透過傳訊來討論。
-  - 記得跟我說你是哪一班，路人我就只好略過，只把時間留給學生。
 
 
 ## 作業
-- 僅限授課學員，其他人請勿將結果寄來，一律刪除。
+- 僅限授課學員。
 - 使用 `requests` 和 `BeautifulSoup`，或是 `selenium` 來爬取網站資料。
   - [Project Gutenberg](https://www.gutenberg.org/)
     - 爬取[中文](https://www.gutenberg.org/browse/languages/zh)書籍資料 (注意: 只要取得中文字，不要英文。)
@@ -66,12 +64,6 @@ Python 網路爬蟲講義與範例程式碼
     - 沒交：`0` 分。
 - 繳交時間
   - 原則上最後一堂課結束後 2 週內，準確時間上課說明。
-
-
-## CSS 選擇器練習
-- CSS Diner 
-  - [遊戲網址](https://flukeout.github.io/)
-  - [答案和解釋](https://andersjensen.org/solutions-to-css-diner/)
 
 
 ## 教學參考影片
