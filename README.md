@@ -30,7 +30,8 @@ Python 網路爬蟲講義與範例程式碼
 	  - 參考影片: [古騰堡計劃（Project Gutenberg）中文電子書爬取](https://www.youtube.com/watch?v=gKDBiVvzMfk)
     - `100` 分條件 (基於 `80` 分條件)
       - 使用 `GitHub` 平台來提交作業，並且將 `github repo` 連結寄給我。
-	  - Git 與 GitHub 使用教學: [程式與網頁開發者必備技能！Git 和 GitHub 零基礎快速上手，輕鬆掌握版本控制的要訣！](https://www.youtube.com/watch?v=FKXRiAiQFiY)
+        - Git 與 GitHub 使用教學: [程式與網頁開發者必備技能！Git 和 GitHub 零基礎快速上手，輕鬆掌握版本控制的要訣！](https://www.youtube.com/watch?v=FKXRiAiQFiY)
+        - Markdown 語法: [如何使用 Markdown 語言撰寫技術文件](https://experienceleague.adobe.com/zh-hant/docs/contributor/contributor-guide/writing-essentials/markdown)
       - `repository` 裡面至少要有 `project_gutenberg` 資料夾，還有你的 `.py` 或 `.ipynb` 檔案，以及 `README.md`。
         ```
         project_gutenberg/
